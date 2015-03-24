@@ -77,3 +77,4 @@ c:\users\lukasz\documents\visual studio 2013\Projects\InstaScore\InstaScore\bin\
 c:\users\lukasz\documents\visual studio 2013\Projects\InstaScore\InstaScore\bin\zh-Hant\System.Spatial.resources.dll
 c:\users\lukasz\documents\visual studio 2013\Projects\InstaScore\InstaScore\obj\Debug\InstaScore.dll
 c:\users\lukasz\documents\visual studio 2013\Projects\InstaScore\InstaScore\obj\Debug\InstaScore.pdb
+c:\users\lukasz\documents\visual studio 2013\Projects\InstaScore\InstaScore\obj\Debug\InstaScore.csprojResolveAssemblyReference.cache
