@@ -23,8 +23,8 @@ namespace InstaScore
                  consumerSecret: "RLo0Kqyh5yaypOVRwaFKnsftNEWxCfz7MbTa2lBRCDkknVPEdd");
 
             OAuthWebSecurity.RegisterFacebookClient(
-                appId: "462882370526476",
-                appSecret: "938b0d194772c891891f82384201ffd4");
+                appId: "346506492212997",
+                appSecret: "c1c2b010a291a8ba3f5c5c4983aef339");
 
             //OAuthWebSecurity.RegisterGoogleClient();
         }
