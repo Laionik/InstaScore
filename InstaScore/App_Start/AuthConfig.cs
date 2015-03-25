@@ -18,13 +18,13 @@ namespace InstaScore
             //    clientId: "",
             //    clientSecret: "");
 
-            // OAuthWebSecurity.RegisterTwitterClient(
-            //     consumerKey: "eD3sdPM3A1dOon6KuSJVFDzb3",
-            //     consumerSecret: "RLo0Kqyh5yaypOVRwaFKnsftNEWxCfz7MbTa2lBRCDkknVPEdd");
+             OAuthWebSecurity.RegisterTwitterClient(
+                 consumerKey: "eD3sdPM3A1dOon6KuSJVFDzb3",
+                 consumerSecret: "RLo0Kqyh5yaypOVRwaFKnsftNEWxCfz7MbTa2lBRCDkknVPEdd");
 
-            //OAuthWebSecurity.RegisterFacebookClient(
-            //    appId: "",
-            //    appSecret: "");
+            OAuthWebSecurity.RegisterFacebookClient(
+                appId: "346506492212997",
+                appSecret: "c1c2b010a291a8ba3f5c5c4983aef339");
 
             //OAuthWebSecurity.RegisterGoogleClient();
         }
