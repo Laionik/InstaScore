@@ -5,8 +5,14 @@
 @section featured {
     <section class="featured">
         <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title @User.Identity.Name</h1>
+            <hgroup class="title">        
+                @{
+                    if (User.Identity.Name.Length > 0)
+                    {
+                        ViewBag.Title = "Witaj " + User.Identity.Name.ToString();
+                    }
+                }
+                <h1>@ViewBag.Title </h1>
                 <h2>@ViewBag.Message</h2>
             </hgroup>
             <p>
