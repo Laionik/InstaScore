@@ -22,9 +22,9 @@ namespace InstaScore
             //     consumerKey: "eD3sdPM3A1dOon6KuSJVFDzb3",
             //     consumerSecret: "RLo0Kqyh5yaypOVRwaFKnsftNEWxCfz7MbTa2lBRCDkknVPEdd");
 
-            //OAuthWebSecurity.RegisterFacebookClient(
-            //    appId: "462882370526476",
-            //    appSecret: "938b0d194772c891891f82384201ffd4");
+            OAuthWebSecurity.RegisterFacebookClient(
+                appId: "462882370526476",
+                appSecret: "938b0d194772c891891f82384201ffd4");
 
             //OAuthWebSecurity.RegisterGoogleClient();
         }
