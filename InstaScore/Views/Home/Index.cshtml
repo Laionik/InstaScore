@@ -50,3 +50,22 @@
         <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
     </li>
 </ol>
+    @{
+        if (User.IsInRole("guest"))
+        {
+            <p>
+                <ol class="round">
+                    <li class="one">
+                        @Html.ActionLink("Zaloguj się", "Login", "Account") <h6>jeśli nie masz konta to @Html.ActionLink("zarejestruj się", "Register", "Account")!</h6>
+                    </li>
+                    <li class="two">
+                        Oceniaj zdjęcia
+                    </li>
+                    <li class="three">
+                        Sprawdź co tygodniowy ranking
+                    </li>
+                </ol>
+            </p>
+        }
+    }
+

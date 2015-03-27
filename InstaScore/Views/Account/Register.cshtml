@@ -1,11 +1,10 @@
 ﻿@model InstaScore.Models.RegisterModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Zarejestruj się";
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
 </hgroup>
 
 @using (Html.BeginForm()) {
@@ -13,7 +12,7 @@
     @Html.ValidationSummary()
 
     <fieldset>
-        <legend>Registration Form</legend>
+        <legend>Formularz rejestracji</legend>
         <ol>
             <li>
                 @Html.LabelFor(m => m.UserName)
@@ -27,6 +26,11 @@
                 @Html.LabelFor(m => m.ConfirmPassword)
                 @Html.PasswordFor(m => m.ConfirmPassword)
             </li>
+          <!-- <li> 
+              Html.LabelFor(m => m.UserMail)
+               Html.TextBoxFor(m => m.UserMail)
+           </li>
+              -->
         </ol>
         <input type="submit" value="Register" />
     </fieldset>
