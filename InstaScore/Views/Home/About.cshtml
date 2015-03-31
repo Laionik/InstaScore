@@ -1,34 +1,32 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "O nas";
+    ViewBag.Message = "i nie tylko";
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
+    <h1>@ViewBag.Title</h1>
     <h2>@ViewBag.Message</h2>
 </hgroup>
 
 <article>
     <p>
-        Use this area to provide additional information.
-    </p>
-
-    <p>
-        Use this area to provide additional information.
-    </p>
-
-    <p>
-        Use this area to provide additional information.
+        Na stronie masz możliwość cotygodniowej oceny zdjęć, które są umieszczane na portalu społecznościowym - Instagram.<br />
+        Każde zdjęcie będzie mogło zostać przez Ciebie ocenione w skali od 1 do 10 a na koniec tygodnia? 
+        Na koniec tygodnia zostanie wygenerowany ranking, który pokaże jak wybrała społeczność strony. <br />
+        Sprawdź czy masz podobny gust do innych użytkowników.
     </p>
 </article>
 
 <aside>
-    <h3>Aside Title</h3>
+    <h3>Autorzy</h3>
     <p>
-        Use this area to provide additional information.
+        Jesteśmy grupą studentów, śmieszków znaną z zamiłowania do Instragrama.
     </p>
     <ul>
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("About", "About", "Home")</li>
-        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        <li>Laionik</li>
+        <li>Rataj</li>
+        <li>Gluzin</li>
+        <li>Proca</li>
+        <li>@Html.ActionLink("Napisz do nas", "Contact", "Home")</li>
     </ul>
 </aside>

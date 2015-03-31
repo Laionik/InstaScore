@@ -41,7 +41,7 @@ namespace InstaScore.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            ModelState.AddModelError("", "Podana nazwa użytkownika lub hasło jest niepoprawne.");
             return View(model);
         }
 
@@ -81,6 +81,7 @@ namespace InstaScore.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
+                    Roles.AddUserToRole(model.UserName, "user");
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
@@ -168,7 +169,7 @@ namespace InstaScore.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                        ModelState.AddModelError("", "Aktualne lub nowe hasło podałeś nieprawidłowe");
                     }
                 }
             }
@@ -280,7 +281,7 @@ namespace InstaScore.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
+                        ModelState.AddModelError("UserName", "Nazwa jest już zajęta. Proszę użyć innej");
                     }
                 }
             }
