@@ -74,7 +74,7 @@ namespace InstaScore.Models
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "Nazwa użtykownika")]
+        [Display(Name = "Nazwa użytkownika")]
         public string UserName { get; set; }
 
         [Required]
@@ -85,7 +85,7 @@ namespace InstaScore.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Potwierdź hasło")]
-        [Compare("Hasło", ErrorMessage = "Hasła nie pasują do siebie")]
+        [Compare("Password", ErrorMessage = "Hasła nie pasują do siebie")]
         public string ConfirmPassword { get; set; }
 
        /* 

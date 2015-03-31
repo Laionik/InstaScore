@@ -129,9 +129,9 @@ namespace InstaScore.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                message == ManageMessageId.ChangePasswordSuccess ? "Twoje hasło zostało zmienione."
+                : message == ManageMessageId.SetPasswordSuccess ? "Ustawiłeś hasło."
+                : message == ManageMessageId.RemoveLoginSuccess ? "Zewnętrzne logowanie usunięte."
                 : "";
             ViewBag.HasLocalPassword = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -192,7 +192,7 @@ namespace InstaScore.Controllers
                     }
                     catch (Exception)
                     {
-                        ModelState.AddModelError("", String.Format("Unable to create local account. An account with the name \"{0}\" may already exist.", User.Identity.Name));
+                        ModelState.AddModelError("", String.Format("Nie można utworzyć konta. Konto o nazwie \"{0}\" może już istnieć.", User.Identity.Name));
                     }
                 }
             }
