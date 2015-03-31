@@ -88,12 +88,10 @@ namespace InstaScore.Models
         [Compare("Password", ErrorMessage = "Hasła nie pasują do siebie")]
         public string ConfirmPassword { get; set; }
 
-       /* 
         [Required]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Adres mail")]
         public string UserMail { get; set; }
-       */
     }
 
     public class ExternalLogin

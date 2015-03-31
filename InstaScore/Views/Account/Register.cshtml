@@ -7,7 +7,8 @@
     <h1>@ViewBag.Title.</h1>
 </hgroup>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
@@ -26,11 +27,11 @@
                 @Html.LabelFor(m => m.ConfirmPassword)
                 @Html.PasswordFor(m => m.ConfirmPassword)
             </li>
-          <!-- <li> 
-              Html.LabelFor(m => m.UserMail)
-               Html.TextBoxFor(m => m.UserMail)
-           </li>
-              -->
+            <li>
+                @Html.LabelFor(m => m.UserMail)
+                @Html.TextBoxFor(m => m.UserMail)
+            </li>
+
         </ol>
         <input type="submit" value="Register" />
     </fieldset>
