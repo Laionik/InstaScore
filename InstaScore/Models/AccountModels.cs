@@ -90,7 +90,7 @@ namespace InstaScore.Models
 
         [Required]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Adres mail")]
+        [Display(Name = "Adres e-mail")]
         public string UserMail { get; set; }
     }
 
