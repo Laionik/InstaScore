@@ -280,7 +280,7 @@ namespace InstaScore.Controllers
                         // Insert name into the profile table
                         db.UserProfiles.Add(new UserProfile { UserName = model.UserName, UserMail = model.UserMail });
                         db.SaveChanges();
-
+                        Roles.AddUserToRole(model.UserName, "user");
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
                         OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);
 

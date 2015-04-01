@@ -1,11 +1,11 @@
 ﻿@model InstaScore.Models.RegisterExternalLoginModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Rejestracja";
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
-    <h2>Associate your @ViewBag.ProviderDisplayName account.</h2>
+    <h2>Powiąż z kontem @ViewBag.ProviderDisplayName.</h2>
 </hgroup>
 
 @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl })) {
@@ -15,9 +15,8 @@
     <fieldset>
         <legend>Association Form</legend>
         <p>
-            You've successfully authenticated with <strong>@ViewBag.ProviderDisplayName</strong>.
-            Please enter a user name for this site below and click the Confirm button to finish
-            logging in.
+            Udało Ci się zweryfikować konto <strong>@ViewBag.ProviderDisplayName</strong>.   
+            Proszę wpisz Twoją nazwę użytkownika poniżej i kliknij "Zaloguj" by zakończyć proces rejestracji.
         </p>
         <ol>
             <li class="name">
@@ -27,7 +26,8 @@
             </li>
         </ol>
         @Html.HiddenFor(m => m.ExternalLoginData)
-        <input type="submit" value="Register" />
+        @Html.HiddenFor(m => m.UserMail)
+        <input type="submit" value="Zaloguj" />
     </fieldset>
 }
 
