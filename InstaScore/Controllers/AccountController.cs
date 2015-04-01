@@ -241,7 +241,14 @@ namespace InstaScore.Controllers
                 string loginData = OAuthWebSecurity.SerializeProviderUserId(result.Provider, result.ProviderUserId);
                 ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(result.Provider).DisplayName;
                 ViewBag.ReturnUrl = returnUrl;
-                return View("ExternalLoginConfirmation", new RegisterExternalLoginModel { UserName = result.UserName, ExternalLoginData = loginData });
+
+                string email = null;
+                if (result.Provider.ToLower() == "facebook")
+                {
+                    email = result.ExtraData["username"];
+                }
+
+                return View("ExternalLoginConfirmation", new RegisterExternalLoginModel { UserName = result.UserName, ExternalLoginData = loginData, UserMail = email });
             }
         }
 
@@ -271,7 +278,7 @@ namespace InstaScore.Controllers
                     if (user == null)
                     {
                         // Insert name into the profile table
-                        db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
+                        db.UserProfiles.Add(new UserProfile { UserName = model.UserName, UserMail = model.UserMail });
                         db.SaveChanges();
 
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);

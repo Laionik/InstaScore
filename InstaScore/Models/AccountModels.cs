@@ -25,7 +25,7 @@ namespace InstaScore.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
-       // public string UserRole { get; set; }
+        public string UserMail { get; set; }
     }
 
     public class RegisterExternalLoginModel
@@ -35,6 +35,8 @@ namespace InstaScore.Models
         public string UserName { get; set; }
 
         public string ExternalLoginData { get; set; }
+
+        public string UserMail { get; set; }
     }
 
     public class LocalPasswordModel
