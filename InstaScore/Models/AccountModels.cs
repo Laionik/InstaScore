@@ -93,7 +93,7 @@ namespace InstaScore.Models
         [Required]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Adres e-mail")]
-        public string UserMail { get; set; }
+        public string UserMail { get;set; }
     }
 
     public class ExternalLogin
