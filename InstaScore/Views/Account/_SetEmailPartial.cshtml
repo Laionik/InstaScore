@@ -1,0 +1,28 @@
+﻿
+@model InstaScore.Models.MailModel
+
+<p>
+    Nie masz jeszcze ustawionego adresu email.
+</p>
+
+@using (Html.BeginForm("Manage", "Account"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Set Email Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.NewEmail)
+                @Html.PasswordFor(m => m.NewEmail)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.OldEmail)
+                @Html.PasswordFor(m => m.OldEmail)
+            </li>
+            ==
+        </ol>
+        <input type="submit" value="Ustaw email" />
+    </fieldset>
+}

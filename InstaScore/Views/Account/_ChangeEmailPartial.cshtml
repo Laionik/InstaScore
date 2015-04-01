@@ -1,0 +1,28 @@
+﻿@model InstaScore.Models.MailModel
+
+<h3>Zmiana adresu email</h3>
+
+@using (Html.BeginForm("Manage", "Account"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Change Email Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.OldEmail)
+                @Html.PasswordFor(m => m.OldEmail)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.NewEmail)
+                @Html.PasswordFor(m => m.NewEmail)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ConfirmEmail)
+                @Html.PasswordFor(m => m.ConfirmEmail)
+            </li>
+        </ol>
+        <input type="submit" value="Zmień adres email" />
+    </fieldset>
+}

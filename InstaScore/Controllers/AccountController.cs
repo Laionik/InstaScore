@@ -187,8 +187,7 @@ namespace InstaScore.Controllers
                 {
                     try
                     {
-                       // WebSecurity.CreateAccount(User.Identity.Name, model.NewPassword);
-                        WebSecurity.CreateUserAndAccount(User.Identity.Name, model.NewPassword, new { model.NewEmail } );
+                        WebSecurity.CreateAccount(User.Identity.Name, model.NewPassword);
                         return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
                     }
                     catch (Exception)
@@ -199,6 +198,20 @@ namespace InstaScore.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        //
+        //POST: /Account/Manage
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MailChange(MailModel model)
+        {
+            ViewBag.ReturnUrl = Url.Action("Manage");
+            UsersContext db = new UsersContext();
+            UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == User.Identity.Name);
+            UpdateModel(user.UserMail, model.NewEmail);
+            db.SaveChanges();
             return View(model);
         }
 
