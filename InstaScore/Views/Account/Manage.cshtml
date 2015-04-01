@@ -1,6 +1,9 @@
 ﻿@model InstaScore.Models.LocalPasswordModel
+@model InstaScore.Models.UserProfile
 @{
     ViewBag.Title = "Zarządzanie kontem";
+    ViewBag.Nick = User.Identity.Name;
+    ViewBag.Mail = Model.UserMail;
 }
 
 <hgroup class="title">
@@ -9,7 +12,14 @@
 
 <p class="message-success">@ViewBag.StatusMessage</p>
 
-<p>Jesetś zalogowany jako <strong>@User.Identity.Name</strong>.</p>
+<p>Jesetś zalogowany jako <strong>@ViewBag.Nick</strong>.
+    @{
+        if (Model.UserMail != null)
+        {
+            <br />@ViewBag.Mail;
+        }
+}
+    </p>
 
 @if (ViewBag.HasLocalPassword)
 {
@@ -20,8 +30,10 @@ else
     @Html.Partial("_SetPasswordPartial")
 }
 @{
-    //Jeśli zewnętrzne logowanie z twittera i nie ma hasła to daj ustawianie maila - inaczej nie rób nic
-    //@Html.Partial("_SetEmailPartial")
+    if(Model.UserMail == null)
+    {
+        @Html.Partial("_SetEmailPartial")
+    }
 }
    
 
