@@ -56,6 +56,11 @@ namespace InstaScore.Models
         [Display(Name = "Potwierdź nowe hasło")]
         [Compare("NewPassword", ErrorMessage = "Hasła się nie zgadzają")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Nowy adres email")]
+        public string NewEmail { get; set; }
     }
 
     public class LoginModel

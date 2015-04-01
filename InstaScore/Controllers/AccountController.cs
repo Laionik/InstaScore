@@ -187,7 +187,8 @@ namespace InstaScore.Controllers
                 {
                     try
                     {
-                        WebSecurity.CreateAccount(User.Identity.Name, model.NewPassword);
+                       // WebSecurity.CreateAccount(User.Identity.Name, model.NewPassword);
+                        WebSecurity.CreateUserAndAccount(User.Identity.Name, model.NewPassword, new { model.NewEmail } );
                         return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
                     }
                     catch (Exception)
