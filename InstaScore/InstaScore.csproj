@@ -308,8 +308,8 @@
     <Content Include="Views\Error\AdminError.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="_AppStart.cshtml" />
-    <Content Include="Views\Account\_SetEmailPartial.cshtml" />
     <Content Include="Views\Account\_ChangeEmailPartial.cshtml" />
+    <Content Include="Views\Account\_SetEmailPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

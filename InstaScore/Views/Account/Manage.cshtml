@@ -1,9 +1,10 @@
-﻿@model InstaScore.Models.LocalPasswordModel
-@model InstaScore.Models.UserProfile
+﻿@model Tuple<InstaScore.Models.LocalPasswordModel, InstaScore.Models.UserProfile>
+
 @{
     ViewBag.Title = "Zarządzanie kontem";
     ViewBag.Nick = User.Identity.Name;
-    ViewBag.Mail = Model.UserMail;
+    ViewBag.Mail = Model.Item2.UserMail;
+
 }
 
 <hgroup class="title">
@@ -12,30 +13,32 @@
 
 <p class="message-success">@ViewBag.StatusMessage</p>
 
-<p>Jesetś zalogowany jako <strong>@ViewBag.Nick</strong>.
+<p>
+    Jesetś zalogowany jako <strong>@ViewBag.Nick</strong>.
     @{
-        if (Model.UserMail != null)
+
+        if (Model.Item2.UserMail != null)
         {
             <br />@ViewBag.Mail;
         }
-}
-    </p>
+    }
+</p>
 
 @if (ViewBag.HasLocalPassword)
 {
     @Html.Partial("_ChangePasswordPartial")
 }
 else
-{ 
+{
     @Html.Partial("_SetPasswordPartial")
 }
 @{
-    if(Model.UserMail == null)
+    if (Model.Item2.UserMail == null)
     {
         @Html.Partial("_SetEmailPartial")
     }
 }
-   
+
 
 <section id="externalLogins">
     @Html.Action("RemoveExternalLogins")
