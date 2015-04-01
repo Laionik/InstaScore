@@ -208,10 +208,10 @@ namespace InstaScore.Controllers
         public ActionResult MailChange(MailModel model)
         {
             ViewBag.ReturnUrl = Url.Action("Manage");
-            UsersContext db = new UsersContext();
-            UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == User.Identity.Name);
-            UpdateModel(user.UserMail, model.NewEmail);
-            db.SaveChanges();
+            //UsersContext db = new UsersContext();
+            //UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == User.Identity.Name);
+            //UpdateModel(user.UserMail, model.NewEmail);
+            //db.SaveChanges();
             return View(model);
         }
 
