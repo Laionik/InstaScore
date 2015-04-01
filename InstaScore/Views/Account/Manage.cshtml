@@ -19,8 +19,11 @@ else
 { 
     @Html.Partial("_SetPasswordPartial")
 }
-
-   @Html.Partial("_SetEmailPartial")
+@{
+    //Jeśli zewnętrzne logowanie z twittera i nie ma hasła to daj ustawianie maila - inaczej nie rób nic
+    //@Html.Partial("_SetEmailPartial")
+}
+   
 
 <section id="externalLogins">
     @Html.Action("RemoveExternalLogins")
