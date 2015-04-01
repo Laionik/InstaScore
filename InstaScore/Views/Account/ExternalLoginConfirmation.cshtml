@@ -25,8 +25,9 @@
                 @Html.ValidationMessageFor(m => m.UserName)
             </li>
         </ol>
-        @Html.HiddenFor(m => m.ExternalLoginData)
-        @Html.HiddenFor(m => m.UserMail)
+            @Html.HiddenFor(m => m.ExternalLoginData)
+            @Html.HiddenFor(m => m.UserMail)
+
         <input type="submit" value="Zaloguj" />
     </fieldset>
 }

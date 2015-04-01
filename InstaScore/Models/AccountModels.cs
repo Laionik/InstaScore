@@ -36,7 +36,7 @@ namespace InstaScore.Models
 
         public string ExternalLoginData { get; set; }
 
-        public string UserMail { get; set; }
+        public string UserMail { get;set; }
     }
 
     public class LocalPasswordModel
