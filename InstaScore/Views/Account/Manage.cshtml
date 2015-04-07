@@ -1,5 +1,4 @@
-﻿@model Tuple<InstaScore.Models.LocalPasswordModel, InstaScore.Models.UserProfile>
-
+﻿@model InstaScore.Models.LocalPasswordModel
 @{
     ViewBag.Title = "Zarządzanie kontem";
     ViewBag.Nick = User.Identity.Name;
@@ -21,9 +20,6 @@
 else
 {
     @Html.Partial("_SetPasswordPartial")
-}
-@{
-        @Html.Partial("_SetEmailPartial")
 }
 
 

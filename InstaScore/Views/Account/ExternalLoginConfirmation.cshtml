@@ -23,10 +23,21 @@
                 @Html.LabelFor(m => m.UserName)
                 @Html.TextBoxFor(m => m.UserName)
                 @Html.ValidationMessageFor(m => m.UserName)
+                @{
+                    if (ViewBag.ProviderDisplayName == "Twitter")
+                    {
+                            @Html.LabelFor(m => m.UserMail)
+                            @Html.TextBoxFor(m => m.UserMail)
+                            @Html.ValidationMessageFor(m => m.UserMail)
+                    }
+                    else
+                    {
+                            @Html.HiddenFor(m => m.UserMail)
+                    }
+                }
             </li>
         </ol>
             @Html.HiddenFor(m => m.ExternalLoginData)
-            @Html.HiddenFor(m => m.UserMail)
 
         <input type="submit" value="Zaloguj" />
     </fieldset>

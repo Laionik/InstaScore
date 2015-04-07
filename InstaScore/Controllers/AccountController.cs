@@ -200,21 +200,6 @@ namespace InstaScore.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
-        //
-        //POST: /Account/Manage
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult MailChange(MailModel model)
-        {
-            ViewBag.ReturnUrl = Url.Action("Manage");
-            UsersContext db = new UsersContext();
-            UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == User.Identity.Name);
-            UpdateModel(user.UserMail, model.NewEmail);
-            db.SaveChanges();
-            return View(model);
-        }
-
         //
         // POST: /Account/ExternalLogin
 
