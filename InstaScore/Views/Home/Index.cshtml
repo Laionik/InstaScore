@@ -6,7 +6,7 @@
 @section featured {
     <section class="featured">
         <div class="content-wrapper">
-            <hgroup class="title">        
+            <hgroup class="title">
                 @{
                     if (User.Identity.Name.Length > 0)
                     {
@@ -22,24 +22,28 @@
         </div>
     </section>
 }
-    @{
-        if (User.Identity.Name.Length == 0 )//(User.IsInRole("guest"))
-        {
-            <p>
-                <ol class="round">
-                    <li class="one">
-                        <font size="3">@Html.ActionLink("Zaloguj się", "Login", "Account")</font><br /><font size="1">Jeśli nie masz konta to @Html.ActionLink("zarejestruj się", "Register", "Account")!</font>
-                    </li>
-                    <li class="two">
-                        <font size="3">Oceniaj zdjęcia</font><br />
-                        W każdy poniedziałek nowe zdjęć
-                    </li>
-                    <li class="three">
-                        <font size="3">Sprawdź ranking</font><br />
-                        Porównaj swoje oceny z innymi użytkownikami
-                    </li>
-                </ol>
-            </p>
-        }
+@{
+    if (User.Identity.Name.Length == 0)
+    {
+        <p>
+            <ol class="round">
+                <li class="one">
+                    <font size="3">@Html.ActionLink("Zaloguj się", "Login", "Account")</font><br /><font size="1">Jeśli nie masz konta to @Html.ActionLink("zarejestruj się", "Register", "Account")!</font>
+                </li>
+                <li class="two">
+                    <font size="3">Oceniaj zdjęcia</font><br />
+                    W każdy poniedziałek nowe zdjęć
+                </li>
+                <li class="three">
+                    <font size="3">Sprawdź ranking</font><br />
+                    Porównaj swoje oceny z innymi użytkownikami
+                </li>
+            </ol>
+        </p>
+    }
+    else
+    {
+        <font size="3">Bierz się do roboty! Zdjęcia same się nie ocenią ;)</font>
     }
 
+}
