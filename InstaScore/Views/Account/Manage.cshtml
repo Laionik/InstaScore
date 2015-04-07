@@ -3,8 +3,6 @@
 @{
     ViewBag.Title = "Zarządzanie kontem";
     ViewBag.Nick = User.Identity.Name;
-    //ViewBag.Mail = Model.Item2.UserMail;
-
 }
 
 <hgroup class="title">
@@ -15,14 +13,6 @@
 
 <p>
     Jesetś zalogowany jako <strong>@ViewBag.Nick</strong>.
-    @{
-
-        if (Model.Item2.UserName != null)
-        {
-            //@:Twój mail to @ViewBag.Mail;
-        }
-    }
-</p>
 
 @if (ViewBag.HasLocalPassword)
 {
