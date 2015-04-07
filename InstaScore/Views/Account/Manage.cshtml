@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Zarządzanie kontem";
     ViewBag.Nick = User.Identity.Name;
-    ViewBag.Mail = Model.Item2.UserMail;
+    //ViewBag.Mail = Model.Item2.UserMail;
 
 }
 
@@ -17,9 +17,9 @@
     Jesetś zalogowany jako <strong>@ViewBag.Nick</strong>.
     @{
 
-        if (Model.Item2.UserMail != null)
+        if (Model.Item2.UserName != null)
         {
-            @:Twój mail to @ViewBag.Mail;
+            //@:Twój mail to @ViewBag.Mail;
         }
     }
 </p>
@@ -33,10 +33,7 @@ else
     @Html.Partial("_SetPasswordPartial")
 }
 @{
-    if (Model.Item2.UserMail == null)
-    {
         @Html.Partial("_SetEmailPartial")
-    }
 }
 
 
