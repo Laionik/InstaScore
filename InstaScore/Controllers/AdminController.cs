@@ -52,6 +52,19 @@ namespace InstaScore.Controllers
             // ViewBag.ResultMessage = "Role deleted succesfully !";
             return RedirectToAction("RoleIndex", "Admin");
         }
+                  
+         /// <summary>
+        /// Create a new role to the user
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(Roles = "Admin")]
+        public ActionResult RoleAddToUser()
+        {
+            SelectList list = new SelectList(Roles.GetAllRoles());
+            ViewBag.Roles = list;
+
+            return View();
+        }
 
         /// <summary>
         /// Add role to the user
@@ -59,22 +72,22 @@ namespace InstaScore.Controllers
         /// <param name="RoleName"></param>
         /// <param name="UserName"></param>
         /// <returns></returns>
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult RoleAddToUser(string RoleName, string UserName)
         {
 
-            if (Roles.IsUserInRole(UserName, RoleName))
-            {
-                ViewBag.ResultMessage = "Użytkownik ma już przypisaną rolę!";
-            }
-            else
-            {
-                Roles.AddUserToRole(UserName, RoleName);
-                ViewBag.ResultMessage = "Użytkownik został przypisany do roli";
-            }
-
+                if (Roles.IsUserInRole(UserName, RoleName))
+                {
+                    ViewBag.ResultMessage = "Użytkownik ma już przypisaną rolę!";
+                }
+                else
+                {
+                    Roles.AddUserToRole(UserName, RoleName);
+                    ViewBag.ResultMessage = "Użytkownik został przypisany do roli";
+                }
+            
             SelectList list = new SelectList(Roles.GetAllRoles());
             ViewBag.Roles = list;
             return View();
@@ -85,7 +98,7 @@ namespace InstaScore.Controllers
         /// </summary>
         /// <param name="UserName"></param>
         /// <returns></returns>
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult GetRoles(string UserName)

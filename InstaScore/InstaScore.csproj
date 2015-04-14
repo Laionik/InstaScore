@@ -252,6 +252,7 @@
     <None Include="Properties\PublishProfiles\instascore - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\instascore - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\deleteicon.png" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

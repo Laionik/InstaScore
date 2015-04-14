@@ -1,13 +1,13 @@
 ﻿@{
-    ViewBag.Title = "Nadawanie ról użytkownikkom";
+    ViewBag.Title = "Nadaj użytkownikom role";
 }
 <div class="spacerBody">
     <p>&nbsp;</p>
     @Html.ActionLink("Utwórz nowe role", "RoleCreate") | @Html.ActionLink("Role", "RoleIndex")
 
-    <h2>@ViewBag.Title</h2>
+    <h2>Role Add to User</h2>
 
-    @using (Html.BeginForm("RoleAddToUser", "Admin"))
+    @using (Html.BeginForm("RoleAddToUser", "Account"))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
@@ -19,7 +19,7 @@
 
         </p>
 
-        <input type="submit" value="Save" />
+        <input type="submit" value="Zapisz" />
     }
 
 
@@ -30,14 +30,14 @@
         @Html.AntiForgeryToken()
         <p>
             Username : @Html.TextBox("UserName")
-            <input type="submit" value="Wyświetl role dla użytkownika" />
+            <input type="submit" value="Pobierz role dla użytkownika" />
         </p>
     }
 
     @if (ViewBag.RolesForThisUser != null)
     {
         <text>
-            <h3>Role dla tego użytkownika</h3>
+            <h3>Roles for this user </h3>
             <ol>
                 @foreach (string s in ViewBag.RolesForThisUser)
                 {
