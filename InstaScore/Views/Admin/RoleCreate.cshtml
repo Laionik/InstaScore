@@ -4,15 +4,16 @@
 }
 <div class="spacerBody">
     <p>&nbsp;</p>
-    @Html.ActionLink("Role", "RoleIndex") | @Html.ActionLink("Nadaj użytkownikom role", "RoleAddToUser")
+    @Html.ActionLink("Role", "RoleIndex") | @Html.ActionLink("Zarządzanie rolami użytkownika", "RoleAddToUser")
     <h2>@ViewBag.Title</h2>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
+
         <div>
-            Nazwa roli
+            Nazwa roli:
         </div>
         <p>
             @Html.TextBox("RoleName")

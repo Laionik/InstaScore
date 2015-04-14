@@ -1,12 +1,12 @@
 ﻿@{
-    ViewBag.Title = "Nadaj użytkownikom role";
+    ViewBag.Title = "Zarządzanie rolami użytkownika";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="spacerBody">
     <p>&nbsp;</p>
     @Html.ActionLink("Utwórz nowe role", "RoleCreate") | @Html.ActionLink("Role", "RoleIndex")
 
-    <h2>Role Add to User</h2>
+    <h2>@ViewBag.Title</h2>
 
     @using (Html.BeginForm("RoleAddToUser", "Admin"))
     {
@@ -14,30 +14,42 @@
         @Html.ValidationSummary(true)
         <div class="message-success">@ViewBag.ResultMessage</div>
         <p>
-            Username : @Html.TextBox("UserName")
-            Role Name: @Html.DropDownList("RoleName", ViewBag.Roles as SelectList)
-
-        </p>
-
-        <input type="submit" value="Zapisz" />
+            Użytkownik: @Html.TextBox("UserName")
+            Rola: @Html.DropDownList("RoleName", ViewBag.Roles as SelectList)
+            </p>
+            <input type="submit" value="Dodaj" />
+        
     }
 
+    <h3>Usuń rolę użytkownikowi</h3>
 
+    @using (Html.BeginForm("DeleteRoleForUser", "Admin"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <p>
+            Użytkownik: @Html.TextBox("UserName")
+            Rola: @Html.DropDownList("RoleName", ViewBag.Roles as SelectList)
+        </p>
+            <input type="submit" value="Usuń" />
+    }
 
     <div class="hr"></div>
+    <h3>Wyświetl role użytkownika</h3>
     @using (Html.BeginForm("GetRoles", "Admin"))
     {
         @Html.AntiForgeryToken()
         <p>
             Username : @Html.TextBox("UserName")
-            <input type="submit" value="Pobierz role dla użytkownika" />
-        </p>
+            </p>
+            <input type="submit" value="Pobierz role użytkownika" />
     }
 
     @if (ViewBag.RolesForThisUser != null)
     {
         <text>
-            <h3>Role dla tego użytkownika</h3>
+            <h3>Role użytkownika</h3>
             <ol>
                 @foreach (string s in ViewBag.RolesForThisUser)
                 {

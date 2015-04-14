@@ -47,9 +47,8 @@ namespace InstaScore.Controllers
         [Authorize(Roles = "admin")]
         public ActionResult RoleDelete(string RoleName)
         {
-
             Roles.DeleteRole(RoleName);
-            // ViewBag.ResultMessage = "Role deleted succesfully !";
+            //ViewBag.ResultMessage = "Role deleted succesfully !";
             return RedirectToAction("RoleIndex", "Admin");
         }
                   
