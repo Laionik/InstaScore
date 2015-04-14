@@ -330,3 +330,4 @@ C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\zh-Hant\System.Spatial.re
 C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\obj\Debug\InstaScore.csprojResolveAssemblyReference.cache
 C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\obj\Debug\InstaScore.dll
 C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\obj\Debug\InstaScore.pdb
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\deleteicon.png

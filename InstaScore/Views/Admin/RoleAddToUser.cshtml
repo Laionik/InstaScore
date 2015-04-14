@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Nadaj użytkownikom role";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="spacerBody">
     <p>&nbsp;</p>
@@ -36,7 +37,7 @@
     @if (ViewBag.RolesForThisUser != null)
     {
         <text>
-            <h3>Roles for this user </h3>
+            <h3>Role dla tego użytkownika</h3>
             <ol>
                 @foreach (string s in ViewBag.RolesForThisUser)
                 {
