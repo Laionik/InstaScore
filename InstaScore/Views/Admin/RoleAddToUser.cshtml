@@ -27,7 +27,6 @@
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
-
         <p>
             Użytkownik: @Html.TextBox("UserName")
             Rola: @Html.DropDownList("RoleName", ViewBag.Roles as SelectList)

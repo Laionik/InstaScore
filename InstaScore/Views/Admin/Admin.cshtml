@@ -2,7 +2,6 @@
     ViewBag.Title = "Admin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 @if (Roles.IsUserInRole("admin"))
 {
     <span>Witamy <b>@WebSecurity.CurrentUserName</b>!</span>

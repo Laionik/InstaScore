@@ -33,7 +33,7 @@ namespace InstaScore.Controllers
         public ActionResult RoleCreate(string RoleName)
         {
             Roles.CreateRole(Request.Form["RoleName"]);
-            // ViewBag.ResultMessage = "Role created successfully !";
+            ViewBag.ResultMessage = "Rula utworzona!";
             return RedirectToAction("RoleIndex", "Admin");
         }
 
@@ -48,7 +48,7 @@ namespace InstaScore.Controllers
         public ActionResult RoleDelete(string RoleName)
         {
             Roles.DeleteRole(RoleName);
-            //ViewBag.ResultMessage = "Role deleted succesfully !";
+            ViewBag.ResultMessage = "Rola usunięta!";
             return RedirectToAction("RoleIndex", "Admin");
         }
                   
