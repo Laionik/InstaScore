@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
     <head>
         <meta charset="utf-8" />
         <title>@ViewBag.Title</title>
@@ -20,14 +20,14 @@
                     </section>
                     <nav>
                         <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                             @{
+                                if (User.IsInRole("user"))
+                                {
+                                    <li>@Html.ActionLink("Zdjęcia", "Photo", "Home")</li>
+                                } 
                                 if(User.IsInRole("admin"))        
                                 {
-                                    <li>@Html.ActionLink("Panel", "Admin", "Admin")</li>
-                                    <li>@Html.ActionLink("Role", "RoleIndex", "Admin")</li>
+                                    <li>@Html.ActionLink("Panel administracyjny", "Admin", "Admin")</li>
                                 };
                             }
                             
@@ -47,6 +47,16 @@
                 <div class="float-left">
                     <p>&copy; @DateTime.Now.Year - InstaScore</p>
                 </div>
+                <div class="float-right">
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
+                            <li>@Html.ActionLink("O nas", "About", "Home")</li>
+                            <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+
             </div>
         </footer>
 

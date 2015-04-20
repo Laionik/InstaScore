@@ -379,34 +379,34 @@ namespace InstaScore.Controllers
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:
-                    return "User name already exists. Please enter a different user name.";
+                    return "Nazwa użytkownika już istnieje. Proszę użyj innej.";
 
                 case MembershipCreateStatus.DuplicateEmail:
-                    return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
+                    return "Do tego adresu e-mail został przypisany inny użytkownik. Proszę podaj inny adres.";
 
                 case MembershipCreateStatus.InvalidPassword:
-                    return "The password provided is invalid. Please enter a valid password value.";
+                    return "Hasło jest nieprawidłowe. Proszę wpisz poprawne hasło.";
 
                 case MembershipCreateStatus.InvalidEmail:
-                    return "The e-mail address provided is invalid. Please check the value and try again.";
+                    return "Podany adres jest niepoprawny. Proszę wpisz poprawny adres e-mail.";
 
-                case MembershipCreateStatus.InvalidAnswer:
-                    return "The password retrieval answer provided is invalid. Please check the value and try again.";
+                // case MembershipCreateStatus.InvalidAnswer:
+                //    return "The password retrieval answer provided is invalid. Please check the value and try again.";
 
-                case MembershipCreateStatus.InvalidQuestion:
-                    return "The password retrieval question provided is invalid. Please check the value and try again.";
+                // case MembershipCreateStatus.InvalidQuestion:
+                //     return "The password retrieval question provided is invalid. Please check the value and try again.";
 
                 case MembershipCreateStatus.InvalidUserName:
-                    return "The user name provided is invalid. Please check the value and try again.";
+                    return "Podana nazwa użykownika jest błędna. Proszę wpisać nazwę zgodną z regułami.";
 
                 case MembershipCreateStatus.ProviderError:
-                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "Serwis społecznościowy zwraca błąd. Proszę spróbować ponownie lub skontaktować się z administratorem";
 
                 case MembershipCreateStatus.UserRejected:
-                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "Utworzenie użytkownika się niepowiodło. Proszę spróbować ponownie lub skontatkować się z administratorem.";
 
                 default:
-                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "Wystąpił nieznany błąd. Proszę spróbować ponownie lub skontatkować się z administratorem.";
             }
         }
         #endregion

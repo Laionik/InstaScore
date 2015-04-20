@@ -14,7 +14,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Log in Form</legend>
+        <legend>Forma logowania</legend>
         <ol>
             <li>
                 @Html.LabelFor(m => m.UserName)
@@ -31,10 +31,10 @@
                 @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
             </li>
         </ol>
-        <input type="submit" value="Log in" />
+        <input type="submit" value="Zaloguj" />
     </fieldset>
     <p>
-        @Html.ActionLink("Register", "Register") jeśli jeszcze nie masz konta.
+        @Html.ActionLink("Zarejestruj", "Register") jeśli jeszcze nie masz konta.
     </p>
 }
 </section>

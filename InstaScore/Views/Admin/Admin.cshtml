@@ -1,12 +1,20 @@
 ﻿@{
-    ViewBag.Title = "Admin";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Panel administratora";
 }
-@if (Roles.IsUserInRole("admin"))
-{
-    <span>Witamy <b>@WebSecurity.CurrentUserName</b>!</span>
-}
-else
-{
-    Response.Redirect("~/Error/AdminError");
-}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<section class="panel">
+    <p>
+        Cześć <b>@User.Identity.Name</b>. Co planujesz zepsuć?
+    </p>
+    <ul id="list">
+        @{
+            <li>@Html.ActionLink("Zarządzaj rolami", "RoleIndex", "Admin")</li>
+        }
+    </ul>
+
+</section>
+

@@ -15,7 +15,7 @@ namespace InstaScore.Controllers
     {
         //
         // GET: /Admin/
-
+        [Authorize(Roles = "admin")]
         public ActionResult Admin()
         {
             return View();
@@ -47,9 +47,18 @@ namespace InstaScore.Controllers
         [Authorize(Roles = "admin")]
         public ActionResult RoleDelete(string RoleName)
         {
-            Roles.DeleteRole(RoleName);
-            ViewBag.ResultMessage = "Rola usunięta!";
-            return RedirectToAction("RoleIndex", "Admin");
+            try
+            {
+                Roles.DeleteRole(RoleName);
+                ViewBag.ResultMessage = "Rola usunięta!";
+                return RedirectToAction("RoleIndex", "Admin");
+            }
+            catch(Exception)
+            {
+                ViewBag.ResultMessage = "Rola jest przypisana do użytkownika/ów!";
+                return RedirectToAction("RoleIndex", "Admin");
+            }
+
         }
                   
          /// <summary>
