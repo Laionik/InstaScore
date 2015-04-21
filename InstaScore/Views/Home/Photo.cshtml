@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Zdjęcia";
-    var imagesPath = Directory.GetFiles(Server.MapPath("/Images/ex/"));
+    //var imagesPath = Directory.GetFiles(Server.MapPath("/Images/ex/"));
+    var imagesPath = Directory.GetFiles("/Images/ex/");
 }
 
 <hgroup class="title">
@@ -11,38 +12,15 @@
 <div style="padding:20px;">
     @if (imagesPath != null)
     {
-        var counter = 0;
+        //var counter = 0;
         foreach (string x in imagesPath)
         {
             <img src="@x" alt="@x" width="150" height="150" />
-            counter++;
-            if (counter % 4 == 0)
+            @*counter++;
+            if (counter % 5 == 0)
             {
                 <br />
-            }
+            }*@
         }
     }
 </div>
-
-@*<section>
-        <img src="~/Images/ex/ex3.jpg" alt="ex3" width="300" />
-    </section>
-    <form method="post" action="">
-        <div>
-            Pokaż:
-            <select name="photoChoice">
-                <option value="ex1.jpg">Photo 1</option>
-                <option value="ex2.jpg">Photo 2</option>
-                <option value="ex3.jpg">Photo 3</option>
-                <option value="ex4.jpg">Photo 4</option>
-            </select>
-            <br />
-            <input type="submit" value="Wyświetl" />
-        </div>
-        <div style="padding:10px;">
-            @if (imagePath != "")
-            {
-                <img src="@imagePath" alt="Sample Image" width="300" />
-            }
-        </div>
-    </form>*@
