@@ -1,12 +1,6 @@
 ﻿@{
     ViewBag.Title = "Zdjęcia";
-    var imagePath = "";
-    if (Request["photoChoice"] != null)
-    {
-        imagePath = @"/Images/ex/" + Request["photoChoice"];
-    }
-
-    var imagesPath = Directory.GetFiles(@"/Images/ex/");
+    var imagesPath = Directory.GetFiles("/Images/ex/");
 }
 
 <hgroup class="title">
