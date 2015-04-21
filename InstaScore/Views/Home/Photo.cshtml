@@ -6,7 +6,7 @@
         imagePath = @"/Images/ex/" + Request["photoChoice"];
     }
 
-    var imagesPath = Directory.GetFiles(Server.MapPath("~/Images/ex/"));
+    var imagesPath = Directory.GetFiles(@"/Images/ex/");
 }
 
 <hgroup class="title">
@@ -14,7 +14,7 @@
     <h2>@ViewBag.PhotoMessage</h2>
 </hgroup>
 
-<div style="padding:10px;">
+<div style="padding:20px;">
     @if (imagesPath != null)
     {
         var counter = 0;
@@ -22,7 +22,7 @@
         {
             <img src="@x" alt="@x" width="150" height="150" />
             counter++;
-            if (counter % 5 == 0)
+            if (counter % 4 == 0)
             {
                 <br />
             }
