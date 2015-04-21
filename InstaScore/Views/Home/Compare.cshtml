@@ -24,6 +24,8 @@
             </p>
             <p>
                 @Html.DropDownList("Photos")
+                <input name="ph1" type="hidden" value="@ViewBag.ph1" />
+                <input name="ph2" type="hidden" value="@ViewBag.ph2" />
             </p>
             <input type="submit" value="Głosuj" />
         </fieldset>

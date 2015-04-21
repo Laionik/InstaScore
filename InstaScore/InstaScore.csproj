@@ -342,6 +342,7 @@
     <Content Include="Views\Admin\RoleCreate.cshtml" />
     <Content Include="Views\Home\Photo.cshtml" />
     <Content Include="Views\Home\Compare.cshtml" />
+    <Content Include="Views\Error\CompareError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

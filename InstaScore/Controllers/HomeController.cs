@@ -14,7 +14,7 @@ namespace InstaScore.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-           // ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            // ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();
         }
@@ -43,44 +43,50 @@ namespace InstaScore.Controllers
         [Authorize(Roles = "user")]
         public ActionResult Compare()
         {
-            ViewBag.ResultCMessage = "Porównaj zdjęcia";
-            var ph1x = "/Images/ex/";
-            var ph2x = "/Images/ex/";
-            Random rnd = new Random();
-            int ph1, ph2;
-            ph1 = rnd.Next(1, 8);
-            while (true)
+            try
             {
-                ph2 = rnd.Next(1, 8);
-                if (ph2 != ph1)
+                ViewBag.ResultCMessage = "Porównaj zdjęcia";
+                var ph1x = "/Images/ex/";
+                var ph2x = "/Images/ex/";
+                Random rnd = new Random();
+                int ph1, ph2;
+                ph1 = rnd.Next(1, 8);
+                while (true)
                 {
-                    break;
+                    ph2 = rnd.Next(1, 8);
+                    if (ph2 != ph1)
+                    {
+                        break;
+                    }
+
                 }
+                ph1x += "ex" + ph1 + ".jpg";
+                ph2x += "ex" + ph2 + ".jpg";
 
+                List<SelectListItem> photos = new List<SelectListItem>();
+                photos.Add(new SelectListItem
+                {
+                    Text = "Zdjęcie " + ph1,
+                    Value = ph1.ToString()
+                });
+                photos.Add(new SelectListItem
+                {
+                    Text = "Zdjęcie " + ph2,
+                    Value = ph2.ToString()
+                });
+
+                ViewBag.Photos = photos;
+                ViewBag.ph1x = ph1x;
+                ViewBag.ph2x = ph2x;
+                ViewBag.ph1 = ph1;
+                ViewBag.ph2 = ph2;
+                return View();
             }
-            ph1x += "ex" + ph1 + ".jpg";
-            ph2x += "ex" + ph2 + ".jpg";
-
-            List<SelectListItem> photos = new List<SelectListItem>();
-            photos.Add(new SelectListItem
+            catch (Exception e)
             {
-                Text = "Zdjęcie " + ph1,
-                Value = ph1.ToString()
-            });
-            photos.Add(new SelectListItem
-            {
-                Text = "Zdjęcie " + ph2,
-                Value = ph2.ToString()
-            });
-
-            ViewBag.Photos = photos;
-            ViewBag.ph1x = ph1x;
-            ViewBag.ph2x = ph2x;
-
-            /*
-             * DODAJ +1 do total dla obu zdjęć
-             */
-            return View();
+                ViewBag.ErrorMessage = e.Message;
+                return RedirectToAction("CompareError", "Error");
+            }
         }
 
         [Authorize(Roles = "user")]
@@ -88,47 +94,62 @@ namespace InstaScore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Compare(string win)
         {
-            win = Request.Form["Photos"];
-            ViewBag.ResultCMessage = "Wybrałeś zdjęcie o ID = " + win;
-            /*
-             * do sth at DB
-             */
-            /*
-            * DODAJ +1 do total dla obu zdjęć
-            */
-            var ph1x = "/Images/ex/";
-            var ph2x = "/Images/ex/";
-            Random rnd = new Random();
-            int ph1, ph2;
-            ph1 = int.Parse(win);
-            while (true)
+            try
             {
-                ph2 = rnd.Next(1, 8);
-                if (ph2 != ph1)
+                win = Request.Form["Photos"];
+                var lost = "";
+
+                if (win != Request.Form["ph1"])
+                    lost = Request.Form["ph1"];
+                else
+                    lost = Request.Form["ph2"];
+
+                ViewBag.ResultCMessage = "Wybrałeś zdjęcie numer " + win;
+
+                /*
+                * DODAJ +1 do total dla win i lost oraz +1 do score dla win
+                */
+                var ph1x = "/Images/ex/";
+                var ph2x = "/Images/ex/";
+                Random rnd = new Random();
+                int ph1, ph2;
+                ph1 = int.Parse(win);
+                while (true)
                 {
-                    break;
+                    ph2 = rnd.Next(1, 8);
+                    if (ph2 != ph1)
+                    {
+                        break;
+                    }
+
                 }
+                ph1x += "ex" + ph1 + ".jpg";
+                ph2x += "ex" + ph2 + ".jpg";
 
+                List<SelectListItem> photos = new List<SelectListItem>();
+                photos.Add(new SelectListItem
+                {
+                    Text = "Zdjęcie " + ph1,
+                    Value = ph1.ToString()
+                });
+                photos.Add(new SelectListItem
+                {
+                    Text = "Zdjęcie " + ph2,
+                    Value = ph2.ToString()
+                });
+
+                ViewBag.Photos = photos;
+                ViewBag.ph1x = ph1x;
+                ViewBag.ph2x = ph2x;
+                ViewBag.ph1 = ph1;
+                ViewBag.ph2 = ph2;
+                return View();
             }
-            ph1x += "ex" + ph1 + ".jpg";
-            ph2x += "ex" + ph2 + ".jpg";
-
-            List<SelectListItem> photos = new List<SelectListItem>();
-            photos.Add(new SelectListItem
+            catch (Exception e)
             {
-                Text = "Zdjęcie " + ph1,
-                Value = ph1.ToString()
-            });
-            photos.Add(new SelectListItem
-            {
-                Text = "Zdjęcie " + ph2,
-                Value = ph2.ToString()
-            });
-
-            ViewBag.Photos = photos;
-            ViewBag.ph1x = ph1x;
-            ViewBag.ph2x = ph2x;
-            return View();
+                ViewBag.ErrorMessage = e.Message;
+                return RedirectToAction("CompareError", "Error");
+            }
         }
     }
 }
