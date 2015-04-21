@@ -190,6 +190,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -340,6 +341,7 @@
     <Content Include="Views\Admin\RoleAddToUser.cshtml" />
     <Content Include="Views\Admin\RoleCreate.cshtml" />
     <Content Include="Views\Home\Photo.cshtml" />
+    <Content Include="Views\Home\Compare.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

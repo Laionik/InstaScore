@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Porównywarka";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.CompareMessage</h2>
+</hgroup>
+
+<div style="padding:10px;">
+    @using (Html.BeginForm("Compare", "Home", FormMethod.Post))
+    {
+        <fieldset>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <p>
+                <div class="message-success">
+                    <font size="3" color="#00BFFF">@ViewBag.ResultCMessage</font> 
+                </div>
+            </p>
+            <p>
+                <img src="@ViewBag.ph1x" alt="@ViewBag.ph1x" width="300" height="300" />
+                <img src="@ViewBag.ph2x" alt="@ViewBag.ph2x" width="300" height="300" />
+            </p>
+            <p>
+                @Html.DropDownList("Photos")
+            </p>
+            <input type="submit" value="Głosuj" />
+        </fieldset>
+    }
+</div>
