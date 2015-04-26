@@ -366,6 +366,7 @@
     <Content Include="Views\Home\Compare.cshtml" />
     <Content Include="Views\Error\CompareError.cshtml" />
     <Content Include="Views\Error\DatabaseError.cshtml" />
+    <Content Include="Views\Home\Ranking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

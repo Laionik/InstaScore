@@ -1,67 +1,68 @@
 ﻿<!DOCTYPE html>
 <html lang="pl">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("LOGO", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            @{
-                                if (User.IsInRole("user"))
-                                {
-                                    <li>@Html.ActionLink("Zdjęcia", "Photo", "Home")</li>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("LOGO", "Index", "Home")</p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+                <nav>
+                    <ul id="menu">
+                        @{
+                            if (User.IsInRole("user"))
+                            {
+                                <li>@Html.ActionLink("Zdjęcia", "Photo", "Home")</li>
                                 <li>@Html.ActionLink("Porównywarka", "Compare", "Home")</li>
-                                } 
-                                if(User.IsInRole("admin"))        
-                                {
-                                    <li>@Html.ActionLink("Panel administracyjny", "Admin", "Admin")</li>
-                                };
+                                <li>@Html.ActionLink("Ranking", "Ranking", "Home")</li>
                             }
-                            
-                        </ul>
-                    </nav>
-                </div>
+                            if (User.IsInRole("admin"))
+                            {
+                                <li>@Html.ActionLink("Panel administracyjny", "Admin", "Admin")</li>
+                            };
+                        }
+
+                    </ul>
+                </nav>
             </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - InstaScore</p>
-                </div>
-                <div class="float-right">
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
-                            <li>@Html.ActionLink("O nas", "About", "Home")</li>
-                            <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
-
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - InstaScore</p>
             </div>
-        </footer>
+            <div class="float-right">
+                <nav>
+                    <ul id="menu">
+                        <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
+                        <li>@Html.ActionLink("O nas", "About", "Home")</li>
+                        <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                    </ul>
+                </nav>
+            </div>
 
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
 </html>

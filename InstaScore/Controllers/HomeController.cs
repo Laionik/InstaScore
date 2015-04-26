@@ -45,6 +45,14 @@ namespace InstaScore.Controllers
         }
 
         [Authorize(Roles = "user")]
+        public ActionResult Ranking()
+        {
+            ViewBag.PhotoMessage = "Te zdjęcia były najczęsciej wybierane";
+            var photos = db.dbphoto.ToList();
+            return View(photos);
+        }
+
+        [Authorize(Roles = "user")]
         public ActionResult Compare()
         {
             try

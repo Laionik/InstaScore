@@ -89,10 +89,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2015 12:59:45</publishTime>
     </File>
     <File Include="bin/InstaScore.dll">
-      <publishTime>04/26/2015 21:31:09</publishTime>
+      <publishTime>04/26/2015 21:41:31</publishTime>
     </File>
     <File Include="bin/InstaScore.pdb">
-      <publishTime>04/26/2015 21:31:09</publishTime>
+      <publishTime>04/26/2015 21:41:31</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
       <publishTime>04/26/2015 12:59:47</publishTime>
@@ -121,6 +121,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/ko/System.Spatial.resources.dll">
       <publishTime>04/26/2015 12:59:48</publishTime>
     </File>
+    <File Include="bin/Microsoft.CSharp.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
     <File Include="bin/Microsoft.Data.Edm.dll">
       <publishTime>04/26/2015 12:59:47</publishTime>
     </File>
@@ -148,10 +151,61 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/ru/System.Spatial.resources.dll">
       <publishTime>04/26/2015 12:59:48</publishTime>
     </File>
+    <File Include="bin/System.ComponentModel.DataAnnotations.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Configuration.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Data.DataSetExtensions.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Data.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Data.Entity.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Drawing.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.EnterpriseServices.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>04/26/2015 12:59:46</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.WebRequest.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
     <File Include="bin/System.Spatial.dll">
       <publishTime>04/26/2015 12:59:48</publishTime>
     </File>
+    <File Include="bin/System.Transactions.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
     <File Include="bin/System.Web.Abstractions.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.ApplicationServices.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.DynamicData.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Entity.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Extensions.dll">
       <publishTime>09/26/2012 04:16:08</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
@@ -178,6 +232,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/System.Web.Routing.dll">
       <publishTime>09/26/2012 04:16:08</publishTime>
     </File>
+    <File Include="bin/System.Web.Services.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
       <publishTime>04/26/2015 12:59:47</publishTime>
     </File>
@@ -186,6 +243,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
       <publishTime>04/26/2015 12:59:47</publishTime>
+    </File>
+    <File Include="bin/System.Xml.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Xml.Linq.dll">
+      <publishTime>09/26/2012 04:16:08</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>04/26/2015 12:59:48</publishTime>
@@ -571,6 +634,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Home/Photo.cshtml">
       <publishTime>04/26/2015 18:57:09</publishTime>
     </File>
+    <File Include="Views/Home/Ranking.cshtml">
+      <publishTime>04/26/2015 22:28:55</publishTime>
+    </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/26/2015 12:59:46</publishTime>
     </File>
@@ -587,7 +653,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2015 12:59:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/26/2015 21:31:11</publishTime>
+      <publishTime>04/26/2015 21:41:43</publishTime>
     </File>
     <File Include="_AppStart.cshtml">
       <publishTime>04/26/2015 12:59:44</publishTime>
