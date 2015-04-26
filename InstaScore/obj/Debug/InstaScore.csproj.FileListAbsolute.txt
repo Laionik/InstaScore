@@ -515,14 +515,6 @@ C:\Users\Lukasz\Source\Repos\InstaScore2\InstaScore\bin\zh-Hant\System.Spatial.r
 C:\Users\Lukasz\Source\Repos\InstaScore2\InstaScore\obj\Debug\InstaScore.csprojResolveAssemblyReference.cache
 C:\Users\Lukasz\Source\Repos\InstaScore2\InstaScore\obj\Debug\InstaScore.dll
 C:\Users\Lukasz\Source\Repos\InstaScore2\InstaScore\obj\Debug\InstaScore.pdb
-C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex1.jpg
-C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex2.jpg
-C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex3.jpg
-C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex4.jpg
-C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex5.jpg
-C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex6.jpg
-C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex7.jpg
-C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex8.jpg
 C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\deleteicon.png
 C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\InstaScore.dll.config
 C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\InstaScore.dll
