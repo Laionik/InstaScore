@@ -623,7 +623,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2015 12:59:46</publishTime>
     </File>
     <File Include="Views/Home/Compare.cshtml">
-      <publishTime>04/26/2015 19:35:27</publishTime>
+      <publishTime>04/26/2015 23:37:22</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>04/26/2015 12:59:46</publishTime>
@@ -635,7 +635,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2015 18:57:09</publishTime>
     </File>
     <File Include="Views/Home/Ranking.cshtml">
-      <publishTime>04/26/2015 22:37:51</publishTime>
+      <publishTime>04/27/2015 00:01:27</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/26/2015 12:59:46</publishTime>
