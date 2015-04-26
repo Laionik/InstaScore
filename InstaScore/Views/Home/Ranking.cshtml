@@ -1,7 +1,13 @@
 ﻿@model IEnumerable<InstaScore.Models.photos>
 @{
     ViewBag.Title = "Ranking";
-    var count = 0;
+    int count = 0, i = 1;
+    Dictionary<int, string> slownik = new Dictionary<int, string>();
+    slownik.Add(1, "one");
+    slownik.Add(2, "two");
+    slownik.Add(3, "three");
+    slownik.Add(4, "four");
+    slownik.Add(5, "five");
 }
 
 <hgroup class="title">
@@ -19,24 +25,26 @@
                 else
                     return s.photoScore / s.photoTotal;
             }).ToList();
+
         if (x[0].photoTotal > 0)
         {
             <ol class="round">
-                <li class="one">
-                    <a href="@x[0].photoURL"><img src="@x[0].photoURL" alt="@x[0].photoURL" width="400" height="400" /></a>
-                </li>
-                <li class="two">
-                    <a href="@x[1].photoURL"><img src="@x[1].photoURL" alt="@x[1].photoURL" width="300" height="300" /></a>
-                </li>
-                <li class="three">
-                    <a href="@x[2].photoURL"><img src="@x[2].photoURL" alt="@x[2].photoURL" width="200" height="200" /></a>
-                </li>
-                <li class="four">
-                    <a href="@x[3].photoURL"><img src="@x[3].photoURL" alt="@x[3].photoURL" width="150" height="150" /></a>
-                </li>
-                <li class="five">
-                    <a href="@x[4].photoURL"><img src="@x[4].photoURL" alt="@x[4].photoURL" width="100" height="100" /></a>
-                </li>
+                @while (true)
+                {
+                    if (x[count].photoVisible && x[count].photoTotal > 0)
+                    {
+                        var size = 600 - 100 * i;
+                        <li class="@slownik[i]">
+                            <a href="@x[count].photoURL"><img src="@x[count].photoURL" alt="@x[count].photoURL" width="@size" height="@size" /></a>
+                        </li>
+                        i++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    count++;
+                }
             </ol>
         }
         else
@@ -45,3 +53,20 @@
         }
     }
 </div>
+
+
+@*<li class="one">
+        <a href="@x[0].photoURL"><img src="@x[0].photoURL" alt="@x[0].photoURL" width="400" height="400" /></a>
+    </li>
+    <li class="two">
+        <a href="@x[1].photoURL"><img src="@x[1].photoURL" alt="@x[1].photoURL" width="300" height="300" /></a>
+    </li>
+    <li class="three">
+        <a href="@x[2].photoURL"><img src="@x[2].photoURL" alt="@x[2].photoURL" width="200" height="200" /></a>
+    </li>
+    <li class="four">
+        <a href="@x[3].photoURL"><img src="@x[3].photoURL" alt="@x[3].photoURL" width="150" height="150" /></a>
+    </li>
+    <li class="five">
+        <a href="@x[4].photoURL"><img src="@x[4].photoURL" alt="@x[4].photoURL" width="100" height="100" /></a>
+    </li>*@
