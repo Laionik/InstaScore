@@ -5,12 +5,11 @@
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
+    <h1>@ViewBag.Title</h1>
     <h3>@ViewBag.PhotoMessage</h3>
 </hgroup>
 
 <div style="padding:20px;">
-    <p>Ranking zdjęć:</p>
     @{
 
         var x = Model.OrderBy(s =>
