@@ -604,3 +604,9 @@ C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex5.jpg
 C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex6.jpg
 C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex7.jpg
 C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\ex\ex8.jpg
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\System.Web.Abstractions.dll
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\System.Web.Http.dll
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\System.Web.Http.WebHost.dll
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\System.Web.Routing.dll
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\System.Web.Http.xml
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\System.Web.Http.WebHost.xml
