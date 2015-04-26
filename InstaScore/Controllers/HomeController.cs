@@ -1,4 +1,5 @@
 ﻿using InstaScore.Filters;
+using InstaScore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace InstaScore.Controllers
     [InitializeSimpleMembership]
     public class HomeController : Controller
     {
+        PhotosContext db = new PhotosContext();
+
         [AllowAnonymous]
         public ActionResult Index()
         {
@@ -37,7 +40,8 @@ namespace InstaScore.Controllers
         public ActionResult Photo()
         {
             ViewBag.PhotoMessage = "Zdjęcia dostępne w tym tygodniu";
-            return View();
+            var photos = db.dbphoto.ToList();
+            return View(photos);
         }
 
         [Authorize(Roles = "user")]
@@ -46,41 +50,28 @@ namespace InstaScore.Controllers
             try
             {
                 ViewBag.ResultCMessage = "Porównaj zdjęcia";
-                var ph1x = "/Images/ex/";
-                var ph2x = "/Images/ex/";
+                var photoslist = db.dbphoto.ToList();
                 Random rnd = new Random();
                 int ph1, ph2;
-                ph1 = rnd.Next(1, 8);
                 while (true)
                 {
-                    ph2 = rnd.Next(1, 8);
-                    if (ph2 != ph1)
+                    ph1 = rnd.Next(1, photoslist.Count());
+                    if (photoslist[ph1].photoVisible)
+                        break;
+                }
+
+                while (true)
+                {
+                    ph2 = rnd.Next(1, photoslist.Count());
+                    if (ph2 != ph1 && photoslist[ph2].photoVisible)
                     {
                         break;
                     }
-
                 }
-                ph1x += "ex" + ph1 + ".jpg";
-                ph2x += "ex" + ph2 + ".jpg";
-
-                List<SelectListItem> photos = new List<SelectListItem>();
-                photos.Add(new SelectListItem
-                {
-                    Text = "Zdjęcie " + ph1,
-                    Value = ph1.ToString()
-                });
-                photos.Add(new SelectListItem
-                {
-                    Text = "Zdjęcie " + ph2,
-                    Value = ph2.ToString()
-                });
-
-                ViewBag.Photos = photos;
-                ViewBag.ph1x = ph1x;
-                ViewBag.ph2x = ph2x;
-                ViewBag.ph1 = ph1;
-                ViewBag.ph2 = ph2;
-                return View();
+                List<photos> CompareList = new List<photos>();
+                CompareList.Add(photoslist[ph1]);
+                CompareList.Add(photoslist[ph2]);
+                return View(CompareList);
             }
             catch (Exception e)
             {
@@ -96,58 +87,70 @@ namespace InstaScore.Controllers
         {
             try
             {
-                win = Request.Form["Photos"];
+                Random rnd = new Random();
+                int ph1, ph2;
+                var photoslist = db.dbphoto.ToList();
+
+                /*odczytywanie wyników*/
+                win = Request.Form["image"];
                 var lost = "";
 
                 if (win != Request.Form["ph1"])
                     lost = Request.Form["ph1"];
                 else
                     lost = Request.Form["ph2"];
+    
+                /*Update zdjęć*/
+                var photoUpdate = photoslist.Find(x => x.photoID == int.Parse(win));
+                photoUpdate.photoScore = photoUpdate.photoScore + 1;
+                photoUpdate.photoTotal = photoUpdate.photoTotal + 1;
 
-                ViewBag.ResultCMessage = "Wybrałeś zdjęcie numer " + win;
+                if (TryUpdateModel(photoUpdate))
+                {
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (Exception x)
+                    {
+                        ViewBag.ErrorMessage = x;
+                        return RedirectToAction("DatabaseError", "Error");
+                    }
+                }
+                photoUpdate = photoslist.Find(x => x.photoID == int.Parse(lost));
+                photoUpdate.photoTotal = photoUpdate.photoTotal + 1;
+                if (TryUpdateModel(photoUpdate))
+                {
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (Exception x)
+                    {
+                        ViewBag.ErrorMessage = x;
+                        return RedirectToAction("DatabaseError", "Error");
+                    }
+                }
 
-                /*
-                * DODAJ +1 do total dla win i lost oraz +1 do score dla win
-                */
-                var ph1x = "/Images/ex/";
-                var ph2x = "/Images/ex/";
-                Random rnd = new Random();
-                int ph1, ph2;
-                ph1 = int.Parse(win);
+                /*losowanie nowych zdjęć*/
+               ph1 = photoslist.FindIndex(x => x.photoID == int.Parse(win));          
                 while (true)
                 {
-                    ph2 = rnd.Next(1, 8);
-                    if (ph2 != ph1)
+                    ph2 = rnd.Next(0, photoslist.Count() - 1);
+                    if (ph2 != ph1 && photoslist[ph2].photoVisible)
                     {
                         break;
                     }
-
                 }
-                ph1x += "ex" + ph1 + ".jpg";
-                ph2x += "ex" + ph2 + ".jpg";
-
-                List<SelectListItem> photos = new List<SelectListItem>();
-                photos.Add(new SelectListItem
-                {
-                    Text = "Zdjęcie " + ph1,
-                    Value = ph1.ToString()
-                });
-                photos.Add(new SelectListItem
-                {
-                    Text = "Zdjęcie " + ph2,
-                    Value = ph2.ToString()
-                });
-
-                ViewBag.Photos = photos;
-                ViewBag.ph1x = ph1x;
-                ViewBag.ph2x = ph2x;
-                ViewBag.ph1 = ph1;
-                ViewBag.ph2 = ph2;
-                return View();
+                List<photos> CompareList = new List<photos>();
+                CompareList.Add(photoslist[ph1]);
+                CompareList.Add(photoslist[ph2]);
+                ViewBag.ResultCMessage = "Wybrałeś zdjęcie numer " + win;
+                return View(CompareList);
             }
             catch (Exception e)
             {
-                ViewBag.ErrorMessage = e.Message;
+                ViewBag.ErrorMessage = e;
                 return RedirectToAction("CompareError", "Error");
             }
         }

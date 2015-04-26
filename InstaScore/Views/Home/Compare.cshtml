@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IList<InstaScore.Models.photos>
+@{
     ViewBag.Title = "Porównywarka";
 }
 
@@ -8,7 +9,7 @@
 </hgroup>
 
 <div style="padding:10px;">
-    @using (Html.BeginForm("Compare", "Home", FormMethod.Post))
+    @using (Html.BeginForm("Compare", "Home", FormMethod.Post, new { name = "comparephoto", id = "comparephoto" }))
     {
         <fieldset>
             @Html.AntiForgeryToken()
@@ -19,15 +20,15 @@
                 </div>
             </p>
             <p>
-                <img src="@ViewBag.ph1x" alt="@ViewBag.ph1x" width="300" height="300" />
-                <img src="@ViewBag.ph2x" alt="@ViewBag.ph2x" width="300" height="300" />
+                <input type="image" src="@Model[0].photoURL" name="image" value="@Model[0].photoID" width="300" height="300">
+                <input type="image" src="@Model[1].photoURL" name="image" value="@Model[1].photoID" width="300" height="300">
             </p>
             <p>
-                @Html.DropDownList("Photos")
-                <input name="ph1" type="hidden" value="@ViewBag.ph1" />
-                <input name="ph2" type="hidden" value="@ViewBag.ph2" />
+                <input name="ph1" type="hidden" value="@Model[0].photoID" />
+                <input name="ph2" type="hidden" value="@Model[1].photoID" />
             </p>
-            <input type="submit" value="Głosuj" />
         </fieldset>
     }
 </div>
+
+

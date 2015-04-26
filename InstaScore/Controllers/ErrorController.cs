@@ -21,5 +21,10 @@ namespace InstaScore.Controllers
             return View();
         }
 
+        public ActionResult DatabaseError()
+        {
+            return View();
+        }
+
     }
 }

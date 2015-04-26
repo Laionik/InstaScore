@@ -1,21 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace InstaScore.Models
 {
-    public class MovieDBContext : DbContext
+    public class PhotosContext : DbContext
     {
-        public DbSet<PhotoModel> Photos { get; set; }
+        public PhotosContext()
+            : base("DefaultConnection")
+        {
+        }
+        public DbSet<photos> dbphoto { get; set; }
     }
-
-    public class PhotoModel
+    public class photos
     {
-        public int ID { get; set; }
-        public string link { get; set; }
-        public int score { get; set; }
-        public int total { get; set; }
+        [Key]
+        public int photoID { get; set; }
+        public string photoURL { get; set; }
+        public int photoScore { get; set; }
+        public int photoTotal { get; set; }
+        public bool photoVisible { get; set; }
     }
 }

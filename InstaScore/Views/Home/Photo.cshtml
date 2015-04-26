@@ -1,13 +1,30 @@
-﻿@{
+﻿@model IEnumerable<InstaScore.Models.photos>
+@{
     ViewBag.Title = "Zdjęcia";
+    var count = 0;
+    foreach (var x in Model)
+        {
+            if (x.photoVisible)
+            {
+                count++;
+            }
+        }
 }
-
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
-    <h2>@ViewBag.PhotoMessage</h2>
+    <h3>@ViewBag.PhotoMessage</h3>
 </hgroup>
 
 <div style="padding:20px;">
-Tu bedo zdjęcia kiedyś
+    <p>Zagłosuj na jedno z @count zdjęć:</p>
+    @{
+        foreach (var x in Model)
+        {
+            if (x.photoVisible)
+            {
+                <a href="@x.photoURL"><img src="@x.photoURL" alt="@x.photoURL" width="150" height="150" /></a>
+            }
+        }
+    }
 </div>

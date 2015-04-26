@@ -379,6 +379,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/themes/base/minified/jquery.ui.theme.min.css">
       <publishTime>04/26/2015 12:59:44</publishTime>
     </File>
+    <File Include="Controllers/ErrorController.cs">
+      <publishTime>04/26/2015 20:54:32</publishTime>
+    </File>
+    <File Include="Controllers/HomeController.cs">
+      <publishTime>04/26/2015 21:19:42</publishTime>
+    </File>
     <File Include="favicon.ico">
       <publishTime>04/26/2015 12:59:44</publishTime>
     </File>
@@ -450,6 +456,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Images/orderedList9.png">
       <publishTime>04/26/2015 12:59:45</publishTime>
+    </File>
+    <File Include="Models/PhotoModel.cs">
+      <publishTime>04/26/2015 18:48:52</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>04/26/2015 12:59:46</publishTime>
@@ -542,13 +551,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2015 12:59:46</publishTime>
     </File>
     <File Include="Views/Error/CompareError.cshtml">
-      <publishTime>04/26/2015 12:59:46</publishTime>
+      <publishTime>04/26/2015 20:54:20</publishTime>
+    </File>
+    <File Include="Views/Error/DatabaseError.cshtml">
+      <publishTime>04/26/2015 20:54:27</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>04/26/2015 12:59:46</publishTime>
     </File>
     <File Include="Views/Home/Compare.cshtml">
-      <publishTime>04/26/2015 12:59:46</publishTime>
+      <publishTime>04/26/2015 19:35:27</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>04/26/2015 12:59:46</publishTime>
@@ -557,7 +569,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2015 12:59:46</publishTime>
     </File>
     <File Include="Views/Home/Photo.cshtml">
-      <publishTime>04/26/2015 15:53:52</publishTime>
+      <publishTime>04/26/2015 18:57:09</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/26/2015 12:59:46</publishTime>

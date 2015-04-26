@@ -348,6 +348,7 @@
     <Content Include="Views\Home\Photo.cshtml" />
     <Content Include="Views\Home\Compare.cshtml" />
     <Content Include="Views\Error\CompareError.cshtml" />
+    <Content Include="Views\Error\DatabaseError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
