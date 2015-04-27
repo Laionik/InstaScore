@@ -26,10 +26,10 @@
                 @while (true)
                 {
                     if (x[count].photoVisible)
-                    {
-                        var size = 600 - 100 * i;
+                    { 
+                        string size = (60 - 5*(i-1)).ToString() + "%";
                         <li class="@slownik[i]">
-                            <a href="@x[count].photoURL" target="_blank"><img src="@x[count].photoURL" alt="@x[count].photoURL" width="@size" height="@size" /></a>
+                            <a href="@x[count].photoURL" target="_blank"><img src="@x[count].photoURL" alt="@x[count].photoURL" style="width:@size; height:auto;"></a>
                         </li>
                         i++;
                     }

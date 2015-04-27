@@ -89,10 +89,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2015 12:59:45</publishTime>
     </File>
     <File Include="bin/InstaScore.dll">
-      <publishTime>04/27/2015 12:44:39</publishTime>
+      <publishTime>04/27/2015 13:06:06</publishTime>
     </File>
     <File Include="bin/InstaScore.pdb">
-      <publishTime>04/27/2015 12:44:39</publishTime>
+      <publishTime>04/27/2015 13:06:06</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
       <publishTime>04/27/2015 10:03:43</publishTime>
@@ -608,7 +608,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 10:44:02</publishTime>
     </File>
     <File Include="Views/Admin/PhotoManage.cshtml">
-      <publishTime>04/27/2015 12:40:49</publishTime>
+      <publishTime>04/27/2015 13:33:40</publishTime>
     </File>
     <File Include="Views/Admin/RoleAddToUser.cshtml">
       <publishTime>04/27/2015 10:36:20</publishTime>
@@ -632,7 +632,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 10:03:40</publishTime>
     </File>
     <File Include="Views/Home/Compare.cshtml">
-      <publishTime>04/27/2015 10:03:40</publishTime>
+      <publishTime>04/27/2015 13:33:24</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>04/27/2015 10:03:40</publishTime>
@@ -641,10 +641,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 10:03:40</publishTime>
     </File>
     <File Include="Views/Home/Photo.cshtml">
-      <publishTime>04/27/2015 12:21:28</publishTime>
+      <publishTime>04/27/2015 13:32:03</publishTime>
     </File>
     <File Include="Views/Home/Ranking.cshtml">
-      <publishTime>04/27/2015 10:38:47</publishTime>
+      <publishTime>04/27/2015 13:29:38</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/27/2015 10:03:40</publishTime>

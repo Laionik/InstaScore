@@ -15,7 +15,7 @@
             <tr>
                 <th>Zdjęcie</th>
                 <th>Status</th>
-                <th>Zmienić?</th>
+                <th>Zmienić status?</th>
             </tr>
         </thead>
         <tbody>
@@ -32,7 +32,7 @@
                                 <font size="3" color="red">Nie dostępne</font>
                         }}
                     </td>
-                    <td>@Html.ActionLink("Zmień", "PhotoChange", new { x = photo.photoID })</td>
+                    <td>@Html.ActionLink("Zmień", "PhotoChange", new { x = photo.photoID, page = Model.PageNumber })</td>
                     
             </tr>
 		}

@@ -19,9 +19,10 @@
                     <font size="3" color="#00BFFF">@ViewBag.ResultCMessage</font> 
                 </div>
             </p>
-            <p>
-                <input type="image" src="@Model[0].photoURL" name="image" value="@Model[0].photoID" width="300" height="300">
-                <input type="image" src="@Model[1].photoURL" name="image" value="@Model[1].photoID" width="300" height="300">
+            <p style="align-content:center">
+                
+                <input type="image" src="@Model[0].photoURL" name="image" value="@Model[0].photoID" style="width:40%; height:auto;">
+                <input type="image" src="@Model[1].photoURL" name="image" value="@Model[1].photoID" style="width:40%; height:auto;">
             </p>
             <p>
                 <input name="ph1" type="hidden" value="@Model[0].photoID" />

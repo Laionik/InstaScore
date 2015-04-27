@@ -55,15 +55,15 @@ namespace InstaScore.Controllers
                 ViewBag.ResultMessage = "Rola usunięta!";
                 return RedirectToAction("RoleIndex", "Admin");
             }
-            catch(Exception)
+            catch (Exception)
             {
                 ViewBag.ResultMessage = "Rola jest przypisana do użytkownika/ów!";
                 return RedirectToAction("RoleIndex", "Admin");
             }
 
         }
-                  
-         /// <summary>
+
+        /// <summary>
         /// Create a new role to the user
         /// </summary>
         /// <returns></returns>
@@ -88,16 +88,16 @@ namespace InstaScore.Controllers
         public ActionResult RoleAddToUser(string RoleName, string UserName)
         {
 
-                if (Roles.IsUserInRole(UserName, RoleName))
-                {
-                    ViewBag.ResultMessage = "Użytkownik ma już przypisaną rolę!";
-                }
-                else
-                {
-                    Roles.AddUserToRole(UserName, RoleName);
-                    ViewBag.ResultMessage = "Użytkownik został przypisany do roli";
-                }
-            
+            if (Roles.IsUserInRole(UserName, RoleName))
+            {
+                ViewBag.ResultMessage = "Użytkownik ma już przypisaną rolę!";
+            }
+            else
+            {
+                Roles.AddUserToRole(UserName, RoleName);
+                ViewBag.ResultMessage = "Użytkownik został przypisany do roli";
+            }
+
             SelectList list = new SelectList(Roles.GetAllRoles());
             ViewBag.Roles = list;
             return View();
@@ -147,7 +147,7 @@ namespace InstaScore.Controllers
 
         //
         // GET: /Admin/PhotoManage
-         [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public ActionResult PhotoManage(int? page)
         {
             ViewBag.PhotoManage = "Tu możesz zedytować listę dostępnych zdjęć";
@@ -156,26 +156,40 @@ namespace InstaScore.Controllers
             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
             return View(photos.ToPagedList(currentPageIndex, 20));
         }
+
+         [HttpPost]
         [Authorize(Roles = "admin")]
-         public ActionResult PhotoChange(int id)
-         {
-             var x = (photos) db.dbphoto.Select(pid => id);
-             x.photoVisible = !x.photoVisible;
+        public ActionResult PhotoManage()
+        {
+            int? page = int.Parse(Request.QueryString["page"]);
+            ViewBag.PhotoManage = "Tu możesz zedytować listę dostępnych zdjęć";
+            var photos = db.dbphoto.ToList();
+            //return View(photos);
+            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
+            return View(photos.ToPagedList(currentPageIndex, 20));
+        }
 
-             if (TryUpdateModel(x))
-             {
-                 try
-                 {
-                     db.SaveChanges();
-                 }
-                 catch (Exception e)
-                 {
-                     ViewBag.ErrorMessage = e;
-
-                     return RedirectToAction("DatabaseError", "Error");
-                 }
-             }
-             return RedirectToAction("PhotoManage");
-         }
+        [Authorize(Roles = "admin")]
+        public ActionResult PhotoChange()
+        {
+            int id = int.Parse(Request.QueryString["x"]);
+            var page = Request.QueryString["page"];
+            var photolist = db.dbphoto.ToList();
+            var x = photolist.Find(r => r.photoID == id);
+            x.photoVisible = !x.photoVisible;
+            if (TryUpdateModel(x))
+            {
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    ViewBag.ErrorMessage = e;
+                    return RedirectToAction("DatabaseError", "Error");
+                }
+            }
+            return RedirectToAction("PhotoManage", new { page = page });
+        }
     }
 }
