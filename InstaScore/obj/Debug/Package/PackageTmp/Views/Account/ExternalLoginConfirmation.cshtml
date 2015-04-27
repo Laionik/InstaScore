@@ -1,0 +1,48 @@
+﻿@model InstaScore.Models.RegisterExternalLoginModel
+@{
+    ViewBag.Title = "Rejestracja";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Powiąż z kontem @ViewBag.ProviderDisplayName.</h2>
+</hgroup>
+
+@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Association Form</legend>
+        <p>
+            Udało Ci się zweryfikować konto <strong>@ViewBag.ProviderDisplayName</strong>.   
+            Proszę wpisz Twoją nazwę użytkownika poniżej i kliknij "Zaloguj" by zakończyć proces rejestracji.
+        </p>
+        <ol>
+            <li class="name">
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+                @{
+                    if (ViewBag.ProviderDisplayName == "Twitter")
+                    {
+                            @Html.LabelFor(m => m.UserMail)
+                            @Html.TextBoxFor(m => m.UserMail)
+                            @Html.ValidationMessageFor(m => m.UserMail)
+                    }
+                    else
+                    {
+                            @Html.HiddenFor(m => m.UserMail)
+                    }
+                }
+            </li>
+        </ol>
+            @Html.HiddenFor(m => m.ExternalLoginData)
+
+        <input type="submit" value="Zaloguj" />
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

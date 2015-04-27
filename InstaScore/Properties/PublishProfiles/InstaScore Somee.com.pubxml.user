@@ -52,6 +52,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/es/System.Spatial.resources.dll">
       <publishTime>04/27/2015 17:37:31</publishTime>
     </File>
+    <File Include="bin/favicon.ico">
+      <publishTime>04/27/2015 18:43:36</publishTime>
+    </File>
     <File Include="bin/fr/Microsoft.Data.Edm.resources.dll">
       <publishTime>04/27/2015 17:37:31</publishTime>
     </File>
@@ -88,11 +91,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Images/ex/ex8.jpg">
       <publishTime>04/26/2015 12:59:45</publishTime>
     </File>
+    <File Include="bin/Images/logo.png">
+      <publishTime>04/27/2015 18:42:19</publishTime>
+    </File>
     <File Include="bin/InstaScore.dll">
-      <publishTime>04/27/2015 18:15:12</publishTime>
+      <publishTime>04/27/2015 19:47:36</publishTime>
     </File>
     <File Include="bin/InstaScore.pdb">
-      <publishTime>04/27/2015 18:15:12</publishTime>
+      <publishTime>04/27/2015 19:47:36</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
       <publishTime>04/27/2015 17:37:31</publishTime>
@@ -455,7 +461,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2015 21:19:42</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>04/27/2015 17:37:29</publishTime>
+      <publishTime>04/27/2015 18:43:36</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>04/27/2015 17:37:29</publishTime>
@@ -495,6 +501,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Images/heroAccent.png">
       <publishTime>04/27/2015 17:37:29</publishTime>
+    </File>
+    <File Include="Images/logo.png">
+      <publishTime>04/27/2015 18:42:19</publishTime>
     </File>
     <File Include="Images/orderedList0.png">
       <publishTime>04/27/2015 17:37:29</publishTime>
@@ -608,16 +617,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 17:37:30</publishTime>
     </File>
     <File Include="Views/Admin/PhotoManage.cshtml">
-      <publishTime>04/27/2015 17:37:30</publishTime>
+      <publishTime>04/27/2015 19:20:13</publishTime>
     </File>
     <File Include="Views/Admin/RoleAddToUser.cshtml">
-      <publishTime>04/27/2015 17:37:30</publishTime>
+      <publishTime>04/27/2015 19:20:08</publishTime>
     </File>
     <File Include="Views/Admin/RoleCreate.cshtml">
-      <publishTime>04/27/2015 17:37:30</publishTime>
+      <publishTime>04/27/2015 19:20:04</publishTime>
     </File>
     <File Include="Views/Admin/RoleIndex.cshtml">
-      <publishTime>04/27/2015 17:37:30</publishTime>
+      <publishTime>04/27/2015 19:20:01</publishTime>
     </File>
     <File Include="Views/Admin/UserEdit.cshtml">
       <publishTime>04/27/2015 17:37:30</publishTime>
@@ -626,7 +635,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 18:02:01</publishTime>
     </File>
     <File Include="Views/Error/AdminError.cshtml">
-      <publishTime>04/27/2015 17:37:30</publishTime>
+      <publishTime>04/27/2015 19:19:53</publishTime>
     </File>
     <File Include="Views/Error/CompareError.cshtml">
       <publishTime>04/27/2015 17:37:30</publishTime>
@@ -650,19 +659,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 17:37:30</publishTime>
     </File>
     <File Include="Views/Home/Ranking.cshtml">
-      <publishTime>04/27/2015 17:37:30</publishTime>
+      <publishTime>04/27/2015 19:19:37</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/27/2015 17:37:30</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/27/2015 17:37:30</publishTime>
+      <publishTime>04/27/2015 19:06:07</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>04/27/2015 17:37:30</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>04/27/2015 17:37:30</publishTime>
+      <publishTime>04/27/2015 18:48:41</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>04/27/2015 17:37:30</publishTime>

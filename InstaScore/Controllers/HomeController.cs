@@ -36,7 +36,7 @@ namespace InstaScore.Controllers
             return View();
         }
 
-        [Authorize(Roles = "user")]
+        [AllowAnonymous]
         public ActionResult Photo()
         {
             ViewBag.PhotoMessage = "Zdjęcia dostępne w tym tygodniu";
@@ -44,7 +44,7 @@ namespace InstaScore.Controllers
             return View(photos);
         }
 
-        [Authorize(Roles = "user")]
+        [AllowAnonymous]
         public ActionResult Ranking()
         {
             ViewBag.PhotoMessage = "Te zdjęcia były najczęsciej wybierane";
@@ -107,7 +107,7 @@ namespace InstaScore.Controllers
                     lost = Request.Form["ph1"];
                 else
                     lost = Request.Form["ph2"];
-    
+
                 /*Update zdjęć*/
                 var photoUpdate = photoslist.Find(x => x.photoID == int.Parse(win));
                 photoUpdate.photoScore = photoUpdate.photoScore + 1;
@@ -141,7 +141,7 @@ namespace InstaScore.Controllers
                 }
 
                 /*losowanie nowych zdjęć*/
-               ph1 = photoslist.FindIndex(x => x.photoID == int.Parse(win));          
+                ph1 = photoslist.FindIndex(x => x.photoID == int.Parse(win));
                 while (true)
                 {
                     ph2 = rnd.Next(0, photoslist.Count() - 1);
