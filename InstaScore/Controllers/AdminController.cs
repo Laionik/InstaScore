@@ -214,11 +214,12 @@ namespace InstaScore.Controllers
         [Authorize(Roles = "admin")]
         public ActionResult UserEdit(string userid, string username, string usermail)
         {
-            UserProfile x = new UserProfile();
-            x.UserId = int.Parse(userid);
-            x.UserName = username;
-            x.UserMail = usermail;
-            if (TryUpdateModel(x))
+            var x = dbUser.UserProfiles.ToList();
+            var up = x.Find(a => a.UserId == int.Parse(userid));
+            up.UserId = int.Parse(userid);
+            up.UserName = username;
+            up.UserMail = usermail;
+            if (TryUpdateModel(up))
             {
                 try
                 {
@@ -233,18 +234,19 @@ namespace InstaScore.Controllers
             return RedirectToAction("UserManage");
         }
 
+
         [Authorize(Roles = "admin")]
         public ActionResult UserDelete()
         {
-            int id = int.Parse(Request.QueryString["x"]);
-            var page = ViewBag.page;
-            var userlist = dbUser.UserProfiles.ToList();
-            var x = userlist.Find(r => r.UserId == id);
-            foreach (var role in Roles.GetRolesForUser(x.UserName))
-                Roles.RemoveUserFromRole(x.UserName, role);
+            var id = Request.QueryString["x"];
+            var page = Request.QueryString["page"];
+            var x = dbUser.UserProfiles.ToList();
+            var up = x.Find(a => a.UserId == int.Parse(id));
+            foreach (var role in Roles.GetRolesForUser(up.UserName))
+                Roles.RemoveUserFromRole(up.UserName, role);
             try
             {
-                dbUser.UserProfiles.Remove(x);
+                dbUser.UserProfiles.Remove(up);
                 dbUser.SaveChanges();
             }
             catch (Exception e)
