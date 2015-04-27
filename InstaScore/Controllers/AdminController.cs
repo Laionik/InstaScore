@@ -245,7 +245,7 @@ namespace InstaScore.Controllers
             try
             {
                 dbUser.UserProfiles.Remove(x);
-                db.SaveChanges();
+                dbUser.SaveChanges();
             }
             catch (Exception e)
             {
