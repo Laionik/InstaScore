@@ -89,10 +89,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2015 12:59:45</publishTime>
     </File>
     <File Include="bin/InstaScore.dll">
-      <publishTime>04/27/2015 10:56:31</publishTime>
+      <publishTime>04/27/2015 12:44:39</publishTime>
     </File>
     <File Include="bin/InstaScore.pdb">
-      <publishTime>04/27/2015 10:56:31</publishTime>
+      <publishTime>04/27/2015 12:44:39</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
       <publishTime>04/27/2015 10:03:43</publishTime>
@@ -138,6 +138,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/Microsoft.Web.WebPages.OAuth.dll">
       <publishTime>04/27/2015 10:03:42</publishTime>
+    </File>
+    <File Include="bin/MvcPaging.dll">
+      <publishTime>04/27/2015 11:55:20</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>04/27/2015 10:03:43</publishTime>
@@ -443,7 +446,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 10:03:37</publishTime>
     </File>
     <File Include="Controllers/AdminController.cs">
-      <publishTime>04/27/2015 10:53:31</publishTime>
+      <publishTime>04/27/2015 12:07:29</publishTime>
     </File>
     <File Include="Controllers/ErrorController.cs">
       <publishTime>04/26/2015 20:54:32</publishTime>
@@ -527,7 +530,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2015 18:48:52</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/27/2015 10:03:39</publishTime>
+      <publishTime>04/27/2015 11:55:21</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>04/27/2015 10:03:39</publishTime>
@@ -605,7 +608,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 10:44:02</publishTime>
     </File>
     <File Include="Views/Admin/PhotoManage.cshtml">
-      <publishTime>04/27/2015 11:11:21</publishTime>
+      <publishTime>04/27/2015 12:40:49</publishTime>
     </File>
     <File Include="Views/Admin/RoleAddToUser.cshtml">
       <publishTime>04/27/2015 10:36:20</publishTime>
@@ -638,7 +641,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 10:03:40</publishTime>
     </File>
     <File Include="Views/Home/Photo.cshtml">
-      <publishTime>04/27/2015 10:38:51</publishTime>
+      <publishTime>04/27/2015 12:21:28</publishTime>
     </File>
     <File Include="Views/Home/Ranking.cshtml">
       <publishTime>04/27/2015 10:38:47</publishTime>
@@ -653,13 +656,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 10:03:40</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>04/27/2015 10:03:40</publishTime>
+      <publishTime>04/27/2015 11:55:20</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>04/27/2015 10:03:39</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/27/2015 10:56:38</publishTime>
+      <publishTime>04/27/2015 12:15:00</publishTime>
     </File>
     <File Include="_AppStart.cshtml">
       <publishTime>04/27/2015 10:03:36</publishTime>

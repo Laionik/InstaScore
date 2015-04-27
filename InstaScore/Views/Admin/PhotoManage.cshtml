@@ -1,4 +1,5 @@
-﻿@model IEnumerable<InstaScore.Models.photos>
+﻿@*model IEnumerable<InstaScore.Models.photos>*@
+@model IPagedList<InstaScore.Models.photos>
 @{
     ViewBag.Title = "Zarządzaj zdjęciami";
 }
@@ -9,23 +10,35 @@
     <p>
         @Html.ActionLink("Panel admina", "Admin")
     </p>
-    <ul id="photolist">
-        @{
-            foreach (var x in Model)
-            {
-                <li>
-                    <a href="@x.photoURL" target="_blank"><img src="@x.photoURL" alt="@x.photoURL" width="100" height="100" /></a>
-                    @{if (x.photoVisible)
-                    {
-                        <font size="3" color="green">Dostępne</font>
-                    }
-                    else
-                    {
-                        <font size="3" color="red">Nie dostępne</font>
-                    }}
-                    @* Dodaj przyciski make visible/not*@
-                </li>
-            }
-        }
-    </ul>
+    <table class="grid">
+        <thead>
+            <tr>
+                <th>Zdjęcie</th>
+                <th>Status</th>
+                <th>Zmienić?</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var photo in Model) {
+                <tr>
+                    <td><a href="@photo.photoURL" target="_blank"><img src="@photo.photoURL" alt="@photo.photoURL" width="100" height="100" /></a></td>
+                    <td>
+                        @{if (photo.photoVisible)
+                        {
+                                <font size="3" color="green">Dostępne</font>
+                        }
+                        else
+                        {
+                                <font size="3" color="red">Nie dostępne</font>
+                        }}
+                    </td>
+                    <td>@Html.ActionLink("Zmień", "PhotoChange", new { x = photo.photoID })</td>
+                    
+            </tr>
+		}
+        </tbody>
+    </table>
+    <div class="pager">
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+    </div>
 </section>

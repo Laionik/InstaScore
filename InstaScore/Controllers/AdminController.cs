@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using MvcPaging;
 
 namespace InstaScore.Controllers
 {
@@ -147,11 +148,34 @@ namespace InstaScore.Controllers
         //
         // GET: /Admin/PhotoManage
          [Authorize(Roles = "admin")]
-        public ActionResult PhotoManage()
+        public ActionResult PhotoManage(int? page)
         {
             ViewBag.PhotoManage = "Tu możesz zedytować listę dostępnych zdjęć";
             var photos = db.dbphoto.ToList();
-            return View(photos);
+            //return View(photos);
+            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
+            return View(photos.ToPagedList(currentPageIndex, 20));
         }
+        [Authorize(Roles = "admin")]
+         public ActionResult PhotoChange(int id)
+         {
+             var x = (photos) db.dbphoto.Select(pid => id);
+             x.photoVisible = !x.photoVisible;
+
+             if (TryUpdateModel(x))
+             {
+                 try
+                 {
+                     db.SaveChanges();
+                 }
+                 catch (Exception e)
+                 {
+                     ViewBag.ErrorMessage = e;
+
+                     return RedirectToAction("DatabaseError", "Error");
+                 }
+             }
+             return RedirectToAction("PhotoManage");
+         }
     }
 }

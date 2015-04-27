@@ -1,14 +1,6 @@
 ﻿@model IEnumerable<InstaScore.Models.photos>
 @{
     ViewBag.Title = "Zdjęcia";
-    //var count = 0;
-    //foreach (var x in Model)
-    //    {
-    //        if (x.photoVisible)
-    //        {
-    //            count++;
-    //        }
-    //    }
     var list = Model.ToList();
 }
 
@@ -27,13 +19,5 @@
                 <a href="@list[i].photoURL" target="_blank"><img src="@list[i].photoURL" alt="@list[i].photoURL" width="150" height="150" /></a>
             }
         }
-        
-        @*foreach (var x in Model)
-            {
-                if (x.photoVisible)
-                {
-                    <a href="@x.photoURL" target="_blank"><img src="@x.photoURL" alt="@x.photoURL" width="150" height="150" /></a>
-                }
-            }*@
     }
 </div>
