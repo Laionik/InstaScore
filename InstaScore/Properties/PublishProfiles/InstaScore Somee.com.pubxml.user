@@ -95,10 +95,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 18:42:19</publishTime>
     </File>
     <File Include="bin/InstaScore.dll">
-      <publishTime>04/27/2015 20:27:10</publishTime>
+      <publishTime>04/27/2015 22:53:53</publishTime>
     </File>
     <File Include="bin/InstaScore.pdb">
-      <publishTime>04/27/2015 20:27:09</publishTime>
+      <publishTime>04/27/2015 22:53:53</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
       <publishTime>04/27/2015 17:37:31</publishTime>
@@ -575,10 +575,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 17:37:30</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>04/27/2015 20:02:57</publishTime>
+      <publishTime>04/27/2015 22:31:36</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>04/27/2015 20:02:57</publishTime>
+      <publishTime>04/27/2015 22:31:36</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.11.2.min.js">
+      <publishTime>04/27/2015 22:51:06</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>04/27/2015 17:37:30</publishTime>
@@ -620,7 +623,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 17:37:30</publishTime>
     </File>
     <File Include="Scripts/npm.js">
-      <publishTime>04/27/2015 20:02:57</publishTime>
+      <publishTime>04/27/2015 22:31:36</publishTime>
     </File>
     <File Include="Scripts/_references.js">
       <publishTime>04/27/2015 17:37:30</publishTime>
@@ -707,7 +710,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 20:55:15</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/27/2015 21:54:21</publishTime>
+      <publishTime>04/27/2015 22:46:20</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>04/27/2015 20:45:30</publishTime>
