@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<InstaScore.Models.photos>
 @{
     ViewBag.Title = "Zdjęcia";
-    var count = 0;
-    foreach (var x in Model)
-        {
-            if (x.photoVisible)
-            {
-                count++;
-            }
-        }
+    //var count = 0;
+    //foreach (var x in Model)
+    //    {
+    //        if (x.photoVisible)
+    //        {
+    //            count++;
+    //        }
+    //    }
+    var list = Model.ToList();
 }
 
 <hgroup class="title">
@@ -17,14 +18,22 @@
 </hgroup>
 
 <div style="padding:20px;">
-    <p>Zagłosuj na jedno z @count zdjęć:</p>
+    <p>O to kilka z nich:</p>
     @{
-        foreach (var x in Model)
+        for (int i = 0; i < 150; i++)
         {
-            if (x.photoVisible)
+            if (list[i].photoVisible)
             {
-                <a href="@x.photoURL"><img src="@x.photoURL" alt="@x.photoURL" width="150" height="150" /></a>
+                <a href="@list[i].photoURL" target="_blank"><img src="@list[i].photoURL" alt="@list[i].photoURL" width="150" height="150" /></a>
             }
         }
+        
+        @*foreach (var x in Model)
+            {
+                if (x.photoVisible)
+                {
+                    <a href="@x.photoURL" target="_blank"><img src="@x.photoURL" alt="@x.photoURL" width="150" height="150" /></a>
+                }
+            }*@
     }
 </div>

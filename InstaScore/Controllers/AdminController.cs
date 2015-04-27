@@ -13,6 +13,7 @@ namespace InstaScore.Controllers
     [InitializeSimpleMembership]
     public class AdminController : Controller
     {
+        PhotosContext db = new PhotosContext();
         //
         // GET: /Admin/
         [Authorize(Roles = "admin")]
@@ -141,6 +142,16 @@ namespace InstaScore.Controllers
 
 
             return View("RoleAddToUser");
+        }
+
+        //
+        // GET: /Admin/PhotoManage
+         [Authorize(Roles = "admin")]
+        public ActionResult PhotoManage()
+        {
+            ViewBag.PhotoManage = "Tu możesz zedytować listę dostępnych zdjęć";
+            var photos = db.dbphoto.ToList();
+            return View(photos);
         }
     }
 }
