@@ -15,6 +15,7 @@ namespace InstaScore.Controllers
     public class AdminController : Controller
     {
         PhotosContext db = new PhotosContext();
+        UsersContext dbUser = new UsersContext();
         //
         // GET: /Admin/
         [Authorize(Roles = "admin")]
@@ -152,19 +153,17 @@ namespace InstaScore.Controllers
         {
             ViewBag.PhotoManage = "Tu możesz zedytować listę dostępnych zdjęć";
             var photos = db.dbphoto.ToList();
-            //return View(photos);
             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
             return View(photos.ToPagedList(currentPageIndex, 20));
         }
 
-         [HttpPost]
+        [HttpPost]
         [Authorize(Roles = "admin")]
         public ActionResult PhotoManage()
         {
             int? page = int.Parse(Request.QueryString["page"]);
             ViewBag.PhotoManage = "Tu możesz zedytować listę dostępnych zdjęć";
             var photos = db.dbphoto.ToList();
-            //return View(photos);
             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
             return View(photos.ToPagedList(currentPageIndex, 20));
         }
@@ -190,6 +189,71 @@ namespace InstaScore.Controllers
                 }
             }
             return RedirectToAction("PhotoManage", new { page = page });
+        }
+
+        [Authorize(Roles = "admin")]
+        public ActionResult UserManage(int? page)
+        {
+            ViewBag.UserManage = "Zarządzanie użytkownikami";
+            var UsersList = dbUser.UserProfiles.ToList();
+            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
+            return View(UsersList.ToPagedList(currentPageIndex, 20));
+        }
+
+        [Authorize(Roles = "admin")]
+        public ActionResult UserEdit()
+        {
+            int id = int.Parse(Request.QueryString["x"]);
+            var page = Request.QueryString["page"];
+            var Userslist = dbUser.UserProfiles.ToList();
+            ViewBag.Page = page;
+            var x = Userslist.Find(r => r.UserId == id);
+            return View(x);
+        }
+        [HttpPost]
+        [Authorize(Roles = "admin")]
+        public ActionResult UserEdit(string userid, string username, string usermail)
+        {
+            UserProfile x = new UserProfile();
+            x.UserId = int.Parse(userid);
+            x.UserName = username;
+            x.UserMail = usermail;
+            if (TryUpdateModel(x))
+            {
+                try
+                {
+                    dbUser.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    ViewBag.ErrorMessage = e;
+                    return RedirectToAction("DatabaseError", "Error");
+                }
+            }
+            return RedirectToAction("UserManage");
+        }
+
+        [Authorize(Roles = "admin")]
+        public ActionResult UserDelete()
+        {
+            int id = int.Parse(Request.QueryString["x"]);
+            var page = ViewBag.page;
+            var userlist = dbUser.UserProfiles.ToList();
+            var x = userlist.Find(r => r.UserId == id);
+            foreach (var role in Roles.GetRolesForUser(x.UserName))
+                Roles.RemoveUserFromRole(x.UserName, role);
+            try
+            {
+                dbUser.UserProfiles.Remove(x);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                ViewBag.ErrorMessage = e;
+                return RedirectToAction("DatabaseError", "Error");
+            }
+
+            return RedirectToAction("UserManage", new { page = page });
         }
     }
 }

@@ -89,10 +89,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2015 12:59:45</publishTime>
     </File>
     <File Include="bin/InstaScore.dll">
-      <publishTime>04/27/2015 13:06:06</publishTime>
+      <publishTime>04/27/2015 14:50:40</publishTime>
     </File>
     <File Include="bin/InstaScore.pdb">
-      <publishTime>04/27/2015 13:06:06</publishTime>
+      <publishTime>04/27/2015 14:50:40</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
       <publishTime>04/27/2015 10:03:43</publishTime>
@@ -605,7 +605,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2015 10:03:39</publishTime>
     </File>
     <File Include="Views/Admin/Admin.cshtml">
-      <publishTime>04/27/2015 10:44:02</publishTime>
+      <publishTime>04/27/2015 13:59:20</publishTime>
     </File>
     <File Include="Views/Admin/PhotoManage.cshtml">
       <publishTime>04/27/2015 13:33:40</publishTime>
@@ -618,6 +618,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Admin/RoleIndex.cshtml">
       <publishTime>04/27/2015 10:36:12</publishTime>
+    </File>
+    <File Include="Views/Admin/UserEdit.cshtml">
+      <publishTime>04/27/2015 14:48:17</publishTime>
+    </File>
+    <File Include="Views/Admin/UserManage.cshtml">
+      <publishTime>04/27/2015 14:50:27</publishTime>
     </File>
     <File Include="Views/Error/AdminError.cshtml">
       <publishTime>04/27/2015 10:03:40</publishTime>

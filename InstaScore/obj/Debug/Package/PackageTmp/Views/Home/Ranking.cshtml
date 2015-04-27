@@ -3,11 +3,16 @@
     ViewBag.Title = "Ranking";
     int count = 0, i = 1;
     Dictionary<int, string> slownik = new Dictionary<int, string>();
-    slownik.Add(1, "one");
-    slownik.Add(2, "two");
-    slownik.Add(3, "three");
-    slownik.Add(4, "four");
-    slownik.Add(5, "five");
+    //slownik.Add(1, "one");
+    //slownik.Add(2, "two");
+    //slownik.Add(3, "three");
+    //slownik.Add(4, "four");
+    //slownik.Add(5, "five");
+    slownik.Add(1, "gold");
+    slownik.Add(2, "silver");
+    slownik.Add(3, "brown");
+    slownik.Add(4, "none");
+    slownik.Add(5, "none");
 }
 
 <hgroup class="title">
@@ -18,7 +23,7 @@
 <div style="padding:20px;">
     @{
 
-        var x = Model.OrderByDescending(s =>s.photoScore).ToList();
+        var x = Model.OrderByDescending(s => s.photoScore).ToList();
 
         if (x[0].photoTotal > 0)
         {
@@ -26,10 +31,11 @@
                 @while (true)
                 {
                     if (x[count].photoVisible)
-                    { 
-                        string size = (60 - 5*(i-1)).ToString() + "%";
-                        <li class="@slownik[i]">
-                            <a href="@x[count].photoURL" target="_blank"><img src="@x[count].photoURL" alt="@x[count].photoURL" style="width:@size; height:auto;"></a>
+                    {
+                        string size = (60 - 5 * (i - 1)).ToString() + "%";
+                        @* <li class="@slownik[i]"> *@
+                        <li>
+                            <a href="@x[count].photoURL" target="_blank"><img src="@x[count].photoURL" alt="@x[count].photoURL" style="width:@size; height:auto; border-style:outset; border-color:@slownik[i]; border-width: 5px"></a>
                         </li>
                         i++;
                     }
