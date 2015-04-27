@@ -31,11 +31,12 @@
             @*@Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })*@
             @Html.CheckBoxFor(m => m.RememberMe) Zapamiętać?
             <br />       
-    <input class="btn btn-default" type="submit" value="Ustaw hasło" />
+    <input class="btn btn-default" type="submit" value="Loguj" />
 
 </fieldset>
+        <br />
         <p>
-            @Html.ActionLink("Zarejestruj", "Register") jeśli jeszcze nie masz konta.
+            @Html.ActionLink("Zarejestruj", "Register") się jeśli jeszcze nie masz konta.
         </p>
     }
 </section>

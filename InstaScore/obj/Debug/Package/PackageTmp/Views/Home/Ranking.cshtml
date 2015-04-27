@@ -22,7 +22,7 @@
 
         if (x[0].photoTotal > 0)
         {
-            <ol class="round">
+            <ul class="list-unstyled">
                 @while (true)
                 {
                     if (x[count].photoVisible)
@@ -31,6 +31,7 @@
                         <li>
                             <a href="@x[count].photoURL" target="_blank"><img src="@x[count].photoURL" alt="@x[count].photoURL" style="width:@size; height:auto; border-style:outset; border-color:@slownik[i]; border-width: 5px"></a>
                         </li>
+                    <br />
                         i++;
                     }
                     if (i >= 6)
@@ -39,7 +40,7 @@
                     }
                     count++;
                 }
-            </ol>
+            </ul>
         }
         else
         {

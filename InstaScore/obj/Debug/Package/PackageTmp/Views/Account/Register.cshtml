@@ -3,10 +3,6 @@
     ViewBag.Title = "Zarejestruj się";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-</hgroup>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -14,26 +10,25 @@
 
     <fieldset>
         <legend>Formularz rejestracji</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.PasswordFor(m => m.ConfirmPassword)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.UserMail)
-                @Html.TextBoxFor(m => m.UserMail)
-            </li>
-
-        </ol>
-        <input type="submit" value="Zarejestruj" />
+        <table class="table table-striped table-hover" style="width:40%">
+            <tr>
+                <td>@Html.LabelFor(m => m.UserName)</td>
+                <td>@Html.TextBoxFor(m => m.UserName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.Password)</td>
+                <td>@Html.PasswordFor(m => m.Password)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.ConfirmPassword)</td>
+                <td>@Html.PasswordFor(m => m.ConfirmPassword)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.UserMail)</td>
+                <td>@Html.TextBoxFor(m => m.UserMail)</td>
+            </tr>
+        </table>
+        <input class="btn btn-default" type="submit" value="Zarejestruj się" />
     </fieldset>
 }
 

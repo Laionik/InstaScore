@@ -1,7 +1,5 @@
 ﻿@{
     ViewBag.Title = "InstaScore";
-    ViewBag.WelcomeMessage = "Witaj";
-    ViewBag.Message = " na stronie serwisu InstaScore!";
 }
 @section featured {
     <section class="featured">
@@ -10,15 +8,15 @@
                 @{
                     if (User.Identity.Name.Length > 0)
                     {
-                        ViewBag.WelcomeMessage = "Witaj " + User.Identity.Name.ToString();
+                        ViewBag.WelcomeMessage = "Cześć " + User.Identity.Name.ToString();
+                    }
+                    else
+                    {
+                        ViewBag.WelcomeMessage = "Cześć nieznajomy! Dołącz do nas!";
                     }
                 }
-                <h1>@ViewBag.WelcomeMessage </h1>
-                <h2>@ViewBag.Message</h2>
+                <h1>@ViewBag.WelcomeMessage</h1>
             </hgroup>
-            <p>
-                Miłej zabawy!
-            </p>
         </div>
     </section>
 }
