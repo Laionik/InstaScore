@@ -629,7 +629,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/28/2015 10:08:04</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
-      <publishTime>04/28/2015 10:08:04</publishTime>
+      <publishTime>04/28/2015 11:13:07</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginFailure.cshtml">
       <publishTime>04/28/2015 10:08:04</publishTime>
