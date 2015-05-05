@@ -24,5 +24,6 @@ namespace InstaScore.Models
         public int photoScore { get; set; }
         public int photoTotal { get; set; }
         public bool photoVisible { get; set; }
+        public string photoProfile { get; set; }
     }
 }

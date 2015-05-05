@@ -13,6 +13,7 @@
         <thead>
             <tr>
                 <th>Zdjęcie</th>
+                <th>Profil</th>
                 <th>Status</th>
                 <th>Zmienić status?</th>
             </tr>
@@ -22,6 +23,7 @@
             {
                 <tr>
                     <td><a href="@photo.photoURL" target="_blank"><img src="@photo.photoURL" alt="@photo.photoURL" width="100" height="100" /></a></td>
+                    <td><a href="@photo.photoProfile" target="_blank">Profil</a></td>
                     <td>
                         @{if (photo.photoVisible)
                         {
