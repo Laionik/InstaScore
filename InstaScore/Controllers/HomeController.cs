@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcPaging;
 
 namespace InstaScore.Controllers
 {
@@ -37,13 +38,23 @@ namespace InstaScore.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult Photo()
+        public ActionResult Photo(int? page)
         {
             ViewBag.PhotoMessage = "Zdjęcia dostępne w tym tygodniu";
             var photos = db.dbphoto.ToList();
-            return View(photos);
+            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
+            return View(photos.ToPagedList(currentPageIndex, 50));
         }
 
+        [HttpPost]
+        public ActionResult Photo()
+        {
+            int? page = int.Parse(Request.QueryString["page"]);
+            ViewBag.PhotoMessage = "Zdjęcia dostępne w tym tygodniu";
+            var photos = db.dbphoto.ToList();
+            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
+            return View(photos.ToPagedList(currentPageIndex, 50));
+        }
         [AllowAnonymous]
         public ActionResult Ranking()
         {
