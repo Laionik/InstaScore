@@ -704,7 +704,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2015 14:22:14</publishTime>
     </File>
     <File Include="Views/Home/Ranking.cshtml">
-      <publishTime>05/05/2015 13:32:39</publishTime>
+      <publishTime>05/05/2015 15:49:42</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/BootstrapPagination.cshtml">
       <publishTime>05/05/2015 13:32:39</publishTime>

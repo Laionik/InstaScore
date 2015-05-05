@@ -648,3 +648,5 @@ C:\Users\Lukasz\Source\Repos\InstaScore2\InstaScore\bin\System.Web.Http.xml
 C:\Users\Lukasz\Source\Repos\InstaScore2\InstaScore\bin\System.Web.Http.WebHost.xml
 C:\Users\Lukasz\Source\Repos\InstaScore2\InstaScore\bin\favicon.ico
 C:\Users\Lukasz\Source\Repos\InstaScore2\InstaScore\bin\Images\logo.png
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\favicon.ico
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\logo.png
