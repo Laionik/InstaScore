@@ -28,13 +28,15 @@
             </td>
         </tr>
     </table>     
-            @*@Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })*@
             @Html.CheckBoxFor(m => m.RememberMe) Zapamiętać?
             <br />       
     <input class="btn btn-default" type="submit" value="Loguj" />
 
 </fieldset>
         <br />
+        <p>
+            @Html.ActionLink("Zapomniałeś hasła?", "ResetPassword")
+        </p>
         <p>
             @Html.ActionLink("Zarejestruj", "Register") się jeśli jeszcze nie masz konta.
         </p>

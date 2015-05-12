@@ -123,9 +123,97 @@ namespace InstaScore.Controllers
             return View();
         }
 
+        // GET: Account/LostPassword
+        [AllowAnonymous]
+        public ActionResult LostPassword()
+        {
+            return View();
+        }
+
+        // POST: Account/LostPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult LostPassword(LostPasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                MembershipUser user;
+                using (var context = new UsersContext())
+                {
+                    var foundUserName = (from u in context.UserProfiles
+                                         where u.UserMail == model.Email
+                                         select u.UserName).FirstOrDefault();
+                    if (foundUserName != null)
+                    {
+                        user = Membership.GetUser(foundUserName.ToString());
+                    }
+                    else
+                    {
+                        user = null;
+                    }
+                }
+                if (user != null)
+                {
+                    var token = WebSecurity.GeneratePasswordResetToken(user.UserName);
+                    string resetLink = "<a href='"
+                       + Url.Action("ResetPassword", "Account", new { rt = token }, "http")
+                       + "'>Zresetuj hasło!</a>";
+
+                    dynamic email = new Email("ResetPass");
+                    email.To = model.Email;
+                    email.resetlink = resetLink;
+
+                    try
+                    {
+                        email.Send();
+                    }
+                    catch (Exception e)
+                    {
+                        ModelState.AddModelError("", "Błąd wysyłania wiadomości: " + e.Message);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Nie znaleziono użytkownika z danym adresem e-mail.");
+                }
+            }
+
+            return View(model);
+        }
+
+        // GET: /Account/ResetPassword
+        [AllowAnonymous]
+        public ActionResult ResetPassword(string rt)
+        {
+            ResetPasswordModel model = new ResetPasswordModel();
+            model.ReturnToken = rt;
+            return View(model);
+        }
+
+        // POST: /Account/ResetPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ResetPassword(ResetPasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                bool resetResponse = WebSecurity.ResetPassword(model.ReturnToken, model.Password);
+                if (resetResponse)
+                {
+                    ViewBag.Message = "Udana zmiana hasła";
+                }
+                else
+                {
+                    ViewBag.Message = "Nie udało się zmienić hasła!";
+                }
+            }
+            return View(model);
+        }
+
         //
         // POST: /Account/Disassociate
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Disassociate(string provider, string providerUserId)

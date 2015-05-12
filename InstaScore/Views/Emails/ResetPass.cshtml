@@ -1,0 +1,22 @@
+﻿         // Email stuff
+         string subject = "Reset your password for asdf.com";
+         string body = "You link: " + resetLink;
+         string from = "donotreply@asdf.com
+";
+
+         MailMessage message = new MailMessage(from, model.Email);
+         message.Subject = subject;
+         message.Body = body;
+         SmtpClient client = new SmtpClient();
+
+@{
+    Layout = null;
+}
+
+To: @ViewBag.To
+From: instascore2015@gmail.com
+Subject: Resetowanie hasła konta InstaScore
+
+Cześć @ViewBag.UserName,
+
+@ViewBag.resetlink
