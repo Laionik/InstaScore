@@ -10,6 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using InstaScore.Filters;
 using InstaScore.Models;
+using Postal;
 
 namespace InstaScore.Controllers
 {
@@ -76,22 +77,50 @@ namespace InstaScore.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { model.UserMail });
-                    WebSecurity.Login(model.UserName, model.Password);
-                    Roles.AddUserToRole(model.UserName, "user");
-                    return RedirectToAction("Index", "Home");
+                    string confirmationToken = WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { UserMail = model.UserMail }, true);
+                    dynamic email = new Email("RegEmail");
+                    email.To = model.UserMail;
+                    email.UserName = model.UserName;
+                    email.ConfirmationToken = confirmationToken;
+                    email.Send();
+                    return RedirectToAction("RegisterStepTwo", "Account");
                 }
                 catch (MembershipCreateUserException e)
                 {
                     ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
                 }
             }
-
-            // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult RegisterStepTwo()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult RegisterConfirmation(string Id)
+        {
+            if (WebSecurity.ConfirmAccount(Id))
+            {
+                return RedirectToAction("ConfirmationSuccess");
+            }
+            return RedirectToAction("ConfirmationFailure");
+        }
+
+        [AllowAnonymous]
+        public ActionResult ConfirmationSuccess()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult ConfirmationFailure()
+        {
+            return View();
         }
 
         //
@@ -104,10 +133,8 @@ namespace InstaScore.Controllers
             string ownerAccount = OAuthWebSecurity.GetUserName(provider, providerUserId);
             ManageMessageId? message = null;
 
-            // Only disassociate the account if the currently logged in user is the owner
             if (ownerAccount == User.Identity.Name)
             {
-                // Use a transaction to prevent the user from deleting their last login credential
                 using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.Serializable }))
                 {
                     bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));

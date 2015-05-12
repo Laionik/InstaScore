@@ -650,3 +650,8 @@ C:\Users\Lukasz\Source\Repos\InstaScore2\InstaScore\bin\favicon.ico
 C:\Users\Lukasz\Source\Repos\InstaScore2\InstaScore\bin\Images\logo.png
 C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\favicon.ico
 C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Images\logo.png
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Postal.dll
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\RazorEngine.dll
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\Postal.xml
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\RazorEngine.pdb
+C:\Users\Lukasz\Source\Repos\InstaScore\InstaScore\bin\RazorEngine.xml
