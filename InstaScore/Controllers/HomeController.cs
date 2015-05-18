@@ -37,7 +37,7 @@ namespace InstaScore.Controllers
             return View();
         }
 
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult Photo(int? page)
         {
             ViewBag.PhotoMessage = "Zdjęcia dostępne w tym tygodniu";
@@ -47,6 +47,7 @@ namespace InstaScore.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Photo()
         {
             int? page = int.Parse(Request.QueryString["page"]);
@@ -55,7 +56,7 @@ namespace InstaScore.Controllers
             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
             return View(photos.ToPagedList(currentPageIndex, 50));
         }
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult Ranking()
         {
             ViewBag.PhotoMessage = "Te zdjęcia były najczęsciej wybierane";

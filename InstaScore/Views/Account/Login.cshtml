@@ -17,26 +17,28 @@
                     <td>@Html.LabelFor(m => m.UserName)</td>
                     <td>
                         @Html.TextBoxFor(m => m.UserName)
-                    @Html.ValidationMessageFor(m => m.UserName)
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.LabelFor(m => m.Password)</td>
-                <td>
-                    @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </td>
-        </tr>
-    </table>     
-            @*@Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })*@
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Password)</td>
+                    <td>
+                        @Html.PasswordFor(m => m.Password)
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </td>
+                </tr>
+            </table>
             @Html.CheckBoxFor(m => m.RememberMe) Zapamiętać?
-            <br />       
-    <input class="btn btn-default" type="submit" value="Loguj" />
+            <br />
+            <input class="btn btn-default" type="submit" value="Loguj" />
 
-</fieldset>
+        </fieldset>
         <br />
         <p>
-            @Html.ActionLink("Zarejestruj", "Register") się jeśli jeszcze nie masz konta.
+            @Html.ActionLink("Zapomniałeś hasła?", "LostPassword", null, new { @class = "text-warning" })
+        </p>
+        <p class="text-info">
+            @Html.ActionLink("Zarejestruj", "Register", null, new { @class = "text-info" }) się jeśli jeszcze nie masz konta.
         </p>
     }
 </section>
